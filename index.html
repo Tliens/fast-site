@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魁歌帮你快速建站 — 零基础 9 步，半天做出并上线你的网站</title>
+<meta name="description" content="零基础也能半天做出并上线自己的网站：魁歌的 9 步建站教程，用 AI 编程助手生成网页 + GitHub Pages 免费托管，每步都有操作指引、利弊对比和避坑提示。">
+<link rel="canonical" href="https://fast-site.kuige.me/">
+<link rel="alternate" hreflang="zh" href="https://fast-site.kuige.me/">
+<link rel="alternate" hreflang="en" href="https://fast-site.kuige.me/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://fast-site.kuige.me/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="魁歌 Kuige">
+<meta property="og:title" content="魁歌帮你快速建站 — 零基础 9 步，半天上线你的网站">
+<meta property="og:description" content="零基础跟着 9 步做：AI 生成网页 + GitHub Pages 免费托管，每步有利弊对比和避坑提示。">
+<meta property="og:url" content="https://fast-site.kuige.me/">
+<meta property="og:image" content="https://fast-site.kuige.me/og-image.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="魁歌帮你快速建站 — 零基础 9 步，半天上线你的网站">
+<meta name="twitter:description" content="零基础跟着 9 步做：AI 生成网页 + GitHub Pages 免费托管，每步有利弊对比和避坑提示。">
+<meta name="twitter:image" content="https://fast-site.kuige.me/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"HowTo","name":"魁歌帮你快速建站：零基础 9 步做出并上线自己的网站",
+  "description":"用 AI 编程助手生成网页，GitHub Pages 免费托管，半天从零上线一个自己的网站。每步附操作指引与利弊对比。",
+  "totalTime":"PT6H","estimatedCost":{"@type":"MonetaryAmount","currency":"CNY","value":"0"},
+  "step":[
+   {"@type":"HowToStep","position":1,"name":"想清楚做什么网站、给谁用","text":"用一句话说清给谁用、解决什么问题、最重要的一个功能，避免一开始就想做全部功能。"},
+   {"@type":"HowToStep","position":2,"name":"准备三样工具","text":"AI 编程助手、GitHub 账号、现代浏览器，全部免费起步。"},
+   {"@type":"HowToStep","position":3,"name":"让 AI 生成单文件网页","text":"用提示词模板让 AI 生成一个单文件 index.html，双击即可打开。"},
+   {"@type":"HowToStep","position":4,"name":"本地预览检查","text":"双击打开或起本地服务，按清单检查手机宽度、链接、图片和文字。"},
+   {"@type":"HowToStep","position":5,"name":"上传代码到 GitHub","text":"git 三条命令或网页拖拽上传，把 index.html 放进公开仓库。"},
+   {"@type":"HowToStep","position":6,"name":"开启 GitHub Pages 上线","text":"仓库设置里打开 Pages，几分钟得到线上地址。"},
+   {"@type":"HowToStep","position":7,"name":"绑定自有域名（可选）","text":"买一个每年约 50–80 元的域名，加一条解析，自动获得 HTTPS。"},
+   {"@type":"HowToStep","position":8,"name":"SEO 基建与提交搜索引擎","text":"写好标题描述，补 sitemap 与 robots，提交到 Google/Bing 站长平台。"},
+   {"@type":"HowToStep","position":9,"name":"统计、推广与持续迭代","text":"装免费统计，发到对的社区，改完 push 一分钟自动上线。"}
+  ]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"我完全不会写代码，真的能做出来吗？","acceptedAnswer":{"@type":"Answer","text":"能。这条路线的全部代码由 AI 编程助手生成，你负责说清楚想要什么、按步骤复制粘贴和点几下鼠标。本教程每一步都写明了具体操作和常见坑，遇到问题时把报错原样发给 AI，它通常会直接给出修复。"}},
+  {"@type":"Question","name":"全程要花多少钱？","acceptedAnswer":{"@type":"Answer","text":"可以全程 0 元：AI 用免费额度起步，GitHub 和 GitHub Pages 免费，网站以 https://你的用户名.github.io/仓库名/ 访问。唯一可能的花费是可选的自有域名，每年约 50–80 元。"}},
+  {"@type":"Question","name":"需要买服务器吗？","acceptedAnswer":{"@type":"Answer","text":"不需要。静态网站托管在 GitHub Pages 上，访问量由 GitHub 的全球网络承担，个人网站完全够用。以后需要用户注册、支付、数据库等后端能力时，再考虑服务器或云函数。"}},
+  {"@type":"Question","name":"网站上线后想改文字或图片怎么办？","acceptedAnswer":{"@type":"Answer","text":"把需求告诉 AI（或自己改 index.html 对应文字），保存后执行 git add、git commit、git push 三条命令，大约 1 分钟后线上自动更新。这就是这套流程最大的好处：改起来和改文档一样简单。"}},
+  {"@type":"Question","name":"我在中国大陆，GitHub Pages 打开慢怎么办？","acceptedAnswer":{"@type":"Answer","text":"三个办法：一，绑定自有域名（本教程第 7 步），通常比 github.io 域名稳定；二，图片压缩后再上传；三，如果主要受众在大陆且要求很快，可考虑 Gitee Pages 或国内云服务器加备案的路线，代价是需要实名与备案、流程更长。"}},
+  {"@type":"Question","name":"必须按顺序一次做完吗？","acceptedAnswer":{"@type":"Answer","text":"不必。第 1–6 步按顺序做（约半天），第 7–9 步相互独立，随时可做。每一步的完成状态会自动保存在你的浏览器里，下次打开继续。"}}
+ ]}
+]}
+</script>
+<script>
+(function(){try{var t=localStorage.getItem('fs_theme_v1');if(t!=='light'&&t!=='dark')t='auto';document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#f6f7fb;--card:#ffffff;--text:#1c2130;--muted:#5b6472;--border:#e4e7f0;
+  --accent:#4f6bf0;--accent-soft:#eef1fe;--teal:#0e9f94;--warn-bg:#fff7ea;--warn-bd:#f5dfb8;
+  --ok:#178a50;--shadow:0 1px 3px rgba(20,28,60,.06),0 8px 24px rgba(20,28,60,.05);
+  --code-bg:#f0f2f8;--chip-bg:#eef0f7;
+}
+@media (prefers-color-scheme: dark){
+  :root[data-theme="auto"]{
+    --bg:#0e1320;--card:#161c2c;--text:#e8ebf4;--muted:#98a1b8;--border:#273048;
+    --accent:#7b93ff;--accent-soft:#1d2540;--teal:#2dd4bf;--warn-bg:#2a2113;--warn-bd:#57431c;
+    --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --code-bg:#111726;--chip-bg:#1d2436;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1320;--card:#161c2c;--text:#e8ebf4;--muted:#98a1b8;--border:#273048;
+  --accent:#7b93ff;--accent-soft:#1d2540;--teal:#2dd4bf;--warn-bg:#2a2113;--warn-bd:#57431c;
+  --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  --code-bg:#111726;--chip-bg:#1d2436;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px}
+h1,h2,h3{line-height:1.35}
+img{max-width:100%}
+
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:10px 20px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;white-space:nowrap}
+.brand .logo{width:26px;height:26px;flex:none}
+.prog{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.prog-bar{flex:1;height:8px;max-width:220px;background:var(--chip-bg);border-radius:99px;overflow:hidden}
+.prog-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:99px;transition:width .4s}
+#progText{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbtn{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:9px;padding:6px 12px;font-size:13.5px;font-weight:600;cursor:pointer;line-height:1.2}
+.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== 布局 ===== */
+.layout{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:212px minmax(0,1fr);gap:34px}
+main{min-width:0;padding-bottom:80px}
+
+/* ===== 侧边目录 ===== */
+.toc{position:sticky;top:66px;align-self:start;max-height:calc(100vh - 90px);overflow-y:auto;padding:22px 0 30px;font-size:13.5px}
+.toc h3{font-size:12px;letter-spacing:.12em;color:var(--muted);margin:0 0 8px;font-weight:600}
+.toc a{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;color:var(--muted);border-left:2px solid transparent}
+.toc a:hover{color:var(--text);text-decoration:none;background:var(--chip-bg)}
+.toc a.on{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.toc .tnum{width:20px;height:20px;flex:none;display:grid;place-items:center;border-radius:6px;background:var(--chip-bg);font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.toc a.on .tnum{background:var(--accent);color:#fff}
+.toc .tdone{margin-left:auto;color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s}
+.toc a.done .tdone{opacity:1}
+
+/* ===== Hero ===== */
+.hero{padding:52px 0 8px}
+.hero .kicker{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:99px;padding:4px 12px}
+.hero h1{font-size:clamp(28px,4.6vw,42px);margin:16px 0 10px;letter-spacing:-.01em}
+.hero .sub{font-size:clamp(15px,2vw,18px);color:var(--muted);max-width:44em}
+.hero .sub b{color:var(--text)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 6px}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-size:13.5px;font-weight:600;box-shadow:var(--shadow)}
+.liveref{margin-top:16px;font-size:13.5px;color:var(--muted);background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:10px 14px;display:inline-block}
+
+/* ===== 路线图 chips ===== */
+.roadmap{display:flex;gap:8px;overflow-x:auto;padding:18px 2px 8px;scrollbar-width:thin}
+@media (min-width:921px){.roadmap{flex-wrap:wrap;overflow-x:visible}}
+.rm-chip{display:flex;align-items:center;gap:7px;flex:none;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--muted);transition:.2s}
+.rm-chip b{width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--chip-bg);font-size:11.5px;font-variant-numeric:tabular-nums}
+.rm-chip:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
+.rm-chip.done{border-color:var(--ok);color:var(--ok)}
+.rm-chip.done b{background:var(--ok);color:#fff}
+.resetline{font-size:12.5px;color:var(--muted);padding:2px 2px 0}
+.resetline button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:12.5px;text-decoration:underline;padding:0}
+#allDone{margin-top:14px;background:linear-gradient(135deg,var(--accent-soft),transparent);border:1px solid var(--accent);border-radius:14px;padding:14px 18px;font-weight:600}
+#allDone[hidden]{display:none}
+
+/* ===== 区块通用 ===== */
+section.step,section.routebox{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px 28px;margin:26px 0;box-shadow:var(--shadow);scroll-margin-top:80px}
+.shead{display:flex;gap:14px;align-items:flex-start;margin-bottom:6px}
+.snum{flex:none;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:20px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--teal))}
+.shead h2{margin:2px 0 6px;font-size:clamp(19px,2.6vw,24px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+.chip{font-size:12.5px;font-weight:600;color:var(--muted);background:var(--chip-bg);border-radius:99px;padding:3px 11px;white-space:nowrap}
+.step h3{font-size:16.5px;margin:26px 0 8px;color:var(--text)}
+.step h3::before{content:"";display:inline-block;width:4px;height:14px;border-radius:2px;background:var(--accent);margin-right:8px;vertical-align:-1px}
+.step p{margin:8px 0;color:var(--text)}
+.step p.lead{color:var(--muted)}
+ol.ops,ul.ops{margin:8px 0;padding-left:22px}
+ol.ops li,ul.ops li{margin:7px 0}
+ol.ops li::marker{color:var(--accent);font-weight:700}
+
+/* 命令块 */
+.cmdwrap{position:relative;margin:12px 0}
+pre.cmd{margin:0;background:var(--code-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.7;white-space:pre-wrap;word-break:break-all}
+.copy{position:absolute;top:8px;right:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:8px;font-size:12px;padding:4px 10px;cursor:pointer}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+
+/* 利弊对比 */
+.tw{overflow-x:auto;margin:12px 0;border-radius:12px;border:1px solid var(--border)}
+table.cmp{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px;background:var(--card)}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--border);padding:9px 13px;text-align:left;vertical-align:top}
+table.cmp th{background:var(--chip-bg);font-size:12.5px;white-space:nowrap}
+table.cmp tr:last-child td{border-bottom:none}
+table.cmp td:first-child{font-weight:600;white-space:nowrap}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.pc-col{border:1px solid var(--border);border-radius:12px;padding:14px 16px;background:var(--card)}
+.pc-col h4{margin:0 0 8px;font-size:14px}
+.pc-col.pros h4{color:var(--ok)}
+.pc-col.cons h4{color:#d97706}
+.pc-col ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}
+.pc-col li{margin:5px 0}
+
+/* 坑提示 */
+.pit{background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:12px;padding:14px 18px;margin:14px 0}
+.pit h4{margin:0 0 6px;font-size:14.5px}
+.pit ul{margin:0;padding-left:20px;font-size:14px;color:var(--muted)}
+.pit li{margin:5px 0}
+.pit code{background:transparent;border-color:var(--warn-bd)}
+
+/* 完成勾选 */
+.checkrow{display:flex;align-items:center;gap:12px;margin-top:20px;padding:14px 16px;border:1.5px dashed var(--border);border-radius:12px}
+.checkrow.done{border-style:solid;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 7%,transparent)}
+.check{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
+.check input{position:absolute;opacity:0;pointer-events:none}
+.check .box{width:24px;height:24px;flex:none;border:2px solid var(--border);border-radius:7px;display:grid;place-items:center;font-size:15px;color:transparent;transition:.15s;background:var(--card)}
+.check input:checked + .box{background:var(--ok);border-color:var(--ok);color:#fff}
+.check input:focus-visible + .box{outline:2px solid var(--accent);outline-offset:2px}
+
+/* FAQ */
+details.faq{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:0 18px;margin:10px 0;scroll-margin-top:80px}
+details.faq summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;gap:10px;align-items:baseline}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::before{content:"Q";color:var(--accent);font-weight:800;flex:none}
+details.faq[open] summary{border-bottom:1px dashed var(--border)}
+details.faq .ans{padding:12px 0 16px 22px;color:var(--muted)}
+
+/* 路线总览 */
+.routebox h2{margin:0 0 6px;font-size:clamp(19px,2.6vw,24px)}
+
+/* footer */
+footer.foot{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 10px;color:var(--muted);font-size:13.5px}
+footer.foot p{margin:6px 0}
+
+@media (max-width:920px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .toc{display:none}
+  section.step,section.routebox{padding:20px 18px;margin:18px 0}
+  .hero{padding-top:30px}
+}
+@media (max-width:640px){
+  .pc{grid-template-columns:1fr}
+  .prog-bar{max-width:90px}
+  .brand span.bt{display:none}
+}
+@media print{
+  .topbar,.toc,.roadmap,.copy,.checkrow{display:none!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f6bf0"/><stop offset="1" stop-color="#0e9f94"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#lg)"/><path d="M32 11c7.5 5 10.5 12.5 10.5 19.5l4.5 5.5-8.5 1c-1.6 3.2-3.7 5.3-6.5 7.3-2.8-2-4.9-4.1-6.5-7.3l-8.5-1 4.5-5.5C21.5 23.5 24.5 16 32 11z" fill="#fff"/><circle cx="32" cy="27" r="3.6" fill="#4f6bf0"/><path d="M22 46l-4.5 8 8.5-3.2M42 46l4.5 8-8.5-3.2" fill="#fff"/></svg>
+    <span class="bt" data-en="Kuige · Fast Site">魁歌建站</span>
+  </div>
+  <div class="prog" aria-label="progress">
+    <div class="prog-bar"><i id="progFill"></i></div>
+    <span id="progText">0/9</span>
+  </div>
+  <button class="tbtn" id="langBtn" type="button" aria-label="switch language">EN</button>
+  <button class="tbtn" id="themeBtn" type="button" aria-label="switch theme">🌤️</button>
+</header>
+
+<div class="layout">
+<nav class="toc" aria-label="table of contents">
+  <h3 data-en="CONTENTS">目录</h3>
+  <a href="#route" data-toc="route"><span class="tnum">◎</span><span data-en="Route overview">路线总览</span><span class="tdone"></span></a>
+  <a href="#step-1" data-toc="1"><span class="tnum">1</span><span data-en="Decide what to build">想清楚做什么</span><span class="tdone">✓</span></a>
+  <a href="#step-2" data-toc="2"><span class="tnum">2</span><span data-en="Prepare 3 free tools">准备三样工具</span><span class="tdone">✓</span></a>
+  <a href="#step-3" data-toc="3"><span class="tnum">3</span><span data-en="Let AI write the page">让 AI 生成网页</span><span class="tdone">✓</span></a>
+  <a href="#step-4" data-toc="4"><span class="tnum">4</span><span data-en="Preview locally">本地预览检查</span><span class="tdone">✓</span></a>
+  <a href="#step-5" data-toc="5"><span class="tnum">5</span><span data-en="Upload to GitHub">上传到 GitHub</span><span class="tdone">✓</span></a>
+  <a href="#step-6" data-toc="6"><span class="tnum">6</span><span data-en="Go live with Pages">Pages 上线</span><span class="tdone">✓</span></a>
+  <a href="#step-7" data-toc="7"><span class="tnum">7</span><span data-en="Bind your own domain">绑定自有域名</span><span class="tdone">✓</span></a>
+  <a href="#step-8" data-toc="8"><span class="tnum">8</span><span data-en="Basic SEO">SEO 让人搜到你</span><span class="tdone">✓</span></a>
+  <a href="#step-9" data-toc="9"><span class="tnum">9</span><span data-en="Track &amp; iterate">统计推广与迭代</span><span class="tdone">✓</span></a>
+  <a href="#faq" data-toc="faq"><span class="tnum">?</span><span data-en="FAQ">常见问题</span><span class="tdone"></span></a>
+</nav>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <span class="kicker">🚀 <span data-en="A step-by-step guide for absolute beginners">写给完全零基础的小白</span></span>
+  <h1 data-en="Kuige Helps You Build a Website — Fast">魁歌帮你快速建站</h1>
+<p class="sub" data-en="No coding background needed. Follow these 9 steps — let AI write your pages, GitHub Pages hosts them free, and your own website goes live in about half a day. Every step lists exact operations, pros &amp; cons, and pitfalls to avoid.">不用懂任何编程。跟着下面 9 步走：让 AI 帮你写网页、用 GitHub Pages 免费托管，大约半天时间，你自己的网站就能在互联网上打开。每一步都写清楚<b>具体操作、利弊对比和避坑提示</b>。</p>
+  <div class="badges">
+    <span class="badge">💰 <span data-en="Start at ¥0">0 元起步</span></span>
+    <span class="badge">⏱ <span data-en="Half a day, 9 steps">半天 · 9 步</span></span>
+    <span class="badge">✅ <span data-en="Progress auto-saved">进度自动保存</span></span>
+    <span class="badge">🧭 <span data-en="Pros &amp; cons at every step">每步都有利弊分析</span></span>
+  </div>
+  <p class="liveref">💡 <span data-en="This very site was built and deployed with the exact flow it teaches — see the ">这个网站本身就是用这套流程做的（活案例）：</span><a href="https://github.com/Tliens/fast-site" target="_blank" rel="noopener">GitHub <span data-en="repo">仓库</span></a> → <a href="https://fast-site.kuige.me/" target="_blank" rel="noopener">fast-site.kuige.me</a></p>
+
+  <div class="roadmap" id="roadmap">
+    <a class="rm-chip" href="#step-1" data-step="1"><b>1</b><span data-en="Decide">想清楚</span></a>
+    <a class="rm-chip" href="#step-2" data-step="2"><b>2</b><span data-en="Tools">备工具</span></a>
+    <a class="rm-chip" href="#step-3" data-step="3"><b>3</b><span data-en="Generate">AI 生成</span></a>
+    <a class="rm-chip" href="#step-4" data-step="4"><b>4</b><span data-en="Preview">预览</span></a>
+    <a class="rm-chip" href="#step-5" data-step="5"><b>5</b><span data-en="Upload">上传</span></a>
+    <a class="rm-chip" href="#step-6" data-step="6"><b>6</b><span data-en="Go live">上线</span></a>
+    <a class="rm-chip" href="#step-7" data-step="7"><b>7</b><span data-en="Domain">域名</span></a>
+    <a class="rm-chip" href="#step-8" data-step="8"><b>8</b><span>SEO</span></a>
+    <a class="rm-chip" href="#step-9" data-step="9"><b>9</b><span data-en="Iterate">迭代</span></a>
+  </div>
+  <div id="allDone" hidden>🎉 <span data-en="All 9 steps done — your website is live! Share it with a friend.">9 步全部完成，你的网站已经上线啦！发给朋友看看吧。</span></div>
+  <p class="resetline"><span data-en="Progress is saved in this browser. ">进度保存在你自己的浏览器里。</span><button id="resetBtn" type="button" data-en="Reset progress">重置进度</button></p>
+</section>
+
+<!-- ================= 路线总览 ================= -->
+<section class="routebox" id="route">
+  <h2 data-en="Why this route? Four ways to get a website">为什么走这条路线？先看建站的四条路</h2>
+  <p class="lead" style="color:var(--muted)" data-en="Before touching any tool, know the landscape — this table alone will save you weeks of detours.">动手之前先花 2 分钟看懂全局。做网站不止一条路，下面这张表能帮你省掉几周的弯路：</p>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr>
+      <th data-en="Route">路线</th><th data-en="Difficulty">上手难度</th><th data-en="Cost">花费</th><th data-en="Freedom">自由度</th><th data-en="Best for">适合谁</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td>⭐ <span data-en="This tutorial: AI + GitHub Pages">本教程：AI 生成 + GitHub Pages</span></td>
+        <td data-en="Very low — describe what you want">极低，会描述需求就行</td>
+        <td data-en="¥0 (optional domain ~¥50–80/yr)">0 元（可选域名约 ¥50–80/年）</td>
+        <td data-en="Full control of every pixel and word">完全掌控每个像素和文字</td>
+        <td data-en="Beginners, personal sites, portfolios, tools, landing pages">零基础小白、个人主页、作品集、小工具、落地页</td>
+      </tr>
+      <tr>
+        <td data-en="Site builders (Wix / 凡科 / 上线了)">建站平台（Wix / 凡科 / 上线了）</td>
+        <td data-en="Low, drag-and-drop">低，拖拽式</td>
+        <td data-en="Free tier is limited; ¥30–100+/mo for real use">免费版限制多，实用约 ¥30–100+/月</td>
+        <td data-en="Locked to their templates; hard to migrate">锁死在平台模板里，迁移困难</td>
+        <td data-en="Quick company brochure sites, OK with monthly fees">赶时间的公司展示站、能接受月费</td>
+      </tr>
+      <tr>
+        <td data-en="WordPress (server + themes)">WordPress（服务器 + 主题插件）</td>
+        <td data-en="Medium — hosting, updates, security">中等，要管服务器、更新、安全</td>
+        <td data-en="Server ~¥300+/yr, plus themes/plugins">服务器约 ¥300+/年，主题插件另算</td>
+        <td data-en="Huge plugin ecosystem">插件生态巨大</td>
+        <td data-en="Blogs / shops that need comments, members, payments">需要评论、会员、下单的博客和网店</td>
+      </tr>
+      <tr>
+        <td data-en="Hire an agency / freelancer">找人外包</td>
+        <td data-en="None — but you must manage it">零门槛，但要会提需求和验收</td>
+        <td data-en="¥3,000 – 100,000+ per site">¥3,000 – 100,000+ 每站</td>
+        <td data-en="Depends on the contract; changes cost money">看合同，改需求要加钱</td>
+        <td data-en="Businesses with budget and no time">有预算、没时间的企业</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p data-en="This tutorial picks route ①: it costs nothing, teaches you the modern AI-native way of building, and what you make is 100% yours. Routes ②③④ are still valid choices — now you know their trade-offs.">本教程选第 ① 条：不花钱、学会的是「AI 时代做网站」的通用能力、做出来的东西完全属于你。②③④ 也都是正当选择——只是现在你知道各自的代价了。</p>
+</section>
+
+<!-- ================= STEP 1 ================= -->
+<section class="step" id="step-1">
+  <header class="shead">
+    <span class="snum">1</span>
+    <div>
+      <h2 data-en="Step 1 · Decide what to build, and for whom">第 1 步 · 想清楚：做什么网站，给谁用</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="15 min">15 分钟</span></span>
+        <span class="chip">💰 ¥0</span>
+        <span class="chip">🎯 <span data-en="Output: one-sentence brief">产出：一句话需求</span></span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="The #1 reason beginner sites fail is not technology — it is a vague idea. Spend 15 minutes here and every later step gets twice as easy.">小白做网站失败的第一原因不是技术，是需求模糊。这 15 分钟会让后面每一步都快一倍。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Fill in three blanks: ① Who is it for? ② What do they do on it? ③ The single most important feature.">填三个空：① 给<b>谁</b>用？② 他们来<b>做什么</b>？③ 最重要<b>的一项功能</b>是什么？</li>
+    <li data-en="Write it as one sentence, e.g. “A page where friends can see my woodwork portfolio and contact me via WeChat.”">把答案连成一句话。例：<b>「给朋友看的木工作品集，能翻作品照片、扫码加我微信。」</b></li>
+    <li data-en="Cut everything else. Features you “might want later” go on a wish list, not into v1.">把其余功能全部砍掉，写进「以后再说」清单。第一版只要核心那一件事。</li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: plan first vs. build first">利弊：先想清楚再做 vs 边做边改</h3>
+  <div class="pc">
+    <div class="pc-col pros">
+      <h4>✅ <span data-en="Plan first (recommended)">先想清楚（推荐）</span></h4>
+      <ul>
+        <li data-en="One prompt gets AI 80% right on the first try">一次提示词就能让 AI 做对 80%</li>
+        <li data-en="Fewer rewrite cycles, less frustration">返工少，不折腾，半天能上线</li>
+        <li data-en="Forces you to know your audience">逼你想清楚给谁用——这决定网站成败</li>
+      </ul>
+    </div>
+    <div class="pc-col cons">
+      <h4>⚠️ <span data-en="Build first, decide later">边做边改</span></h4>
+      <ul>
+        <li data-en="Fast to see something on screen — motivating!">马上能看到页面，很爽</li>
+        <li data-en="But: AI guesses your intent, you re-explain 10 times">但 AI 只能猜你的意图，来回改十轮</li>
+        <li data-en="Site ends up cluttered with “cool features” that serve nobody">最终堆满「看起来酷」但没人用的功能</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="“I want it like Taobao” — even a tenth of Taobao is a company-sized project. Start with one page.">想做「类似淘宝的网站」——淘宝的十分之一也是公司级工程。从一页开始。</li>
+      <li data-en="Naming the audience as “everyone” = serving nobody. Pick one concrete person you know.">「谁都能用」等于谁都不好用。写一个你认识的、具体的人。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="1">
+    <label class="check"><input type="checkbox" data-step="1"><span class="box">✓</span><span data-en="Done — check off Step 1">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="You now have a one-sentence brief.">你现在有一句话需求了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 2 ================= -->
+<section class="step" id="step-2">
+  <header class="shead">
+    <span class="snum">2</span>
+    <div>
+      <h2 data-en="Step 2 · Prepare three tools — all free to start">第 2 步 · 准备三样工具，全程免费起步</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="20 min">20 分钟</span></span>
+        <span class="chip">💰 ¥0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="You need exactly three things. No compilers, no servers, no dev environment from the 2010s.">只需要三样东西。不用装传统开发环境、不用买任何东西。</p>
+
+  <h3 data-en="What to prepare">清单</h3>
+  <ol class="ops">
+    <li><b data-en="① An AI coding assistant">① 一个 AI 编程助手</b>：<span data-en="Any of: a chat AI (ChatGPT / Claude / Kimi / 豆包), an AI-native editor (Cursor, ZCode), or a terminal agent. Free tiers are enough for this tutorial.">网页对话版（ChatGPT / Claude / Kimi / 豆包）、AI 编程编辑器（Cursor、ZCode）、终端 Agent（ZCode CLI）都行。本教程用免费额度足够。</span></li>
+    <li><b data-en="② A GitHub account">② 一个 GitHub 账号</b>：<span data-en="Sign up at github.com with email — this is where your code lives and where the site gets hosted, both free.">到 github.com 用邮箱注册。它免费帮你存代码 + 免费托管网站。</span></li>
+    <li><b data-en="③ A modern browser">③ 一个现代浏览器</b>：<span data-en="Chrome / Edge / Safari / Firefox — you already have it.">Chrome / Edge / Safari / Firefox，你现在用的就行。</span></li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: which kind of AI assistant">利弊：AI 助手选哪种形态</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Type">形态</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th><th data-en="Pick it if">适合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-en="Chat web app">网页对话</td>
+        <td data-en="Zero install, free tier, copy-paste results">零安装、有免费额度、复制粘贴即用</td>
+        <td data-en="You shuttle code back and forth yourself">来回搬运代码，改多了容易乱</td>
+        <td data-en="Absolute beginners on step 3–4">第 3–4 步的绝对小白</td>
+      </tr>
+      <tr>
+        <td data-en="AI editor / agent">AI 编辑器 / Agent</td>
+        <td data-en="Edits files directly, runs &amp; fixes things for you">直接改文件、帮你跑起来、自动修错</td>
+        <td data-en="Some install; advanced tiers may cost">要装软件，高级功能可能收费</td>
+        <td data-en="Once you have an index.html to maintain">有了 index.html 之后想省事</td>
+      </tr>
+      <tr>
+        <td data-en="Terminal agent">终端 Agent</td>
+        <td data-en="Full automation: code + git + deploy in one go">全自动：写码 + git + 部署一条龙</td>
+        <td data-en="Command line comfort required">需要不怕命令行</td>
+        <td data-en="After you finish this tutorial once">做完一遍本教程后升级</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="Don't install Node.js / VS Code / Homebrew “to be safe” — this tutorial needs none of them.">不要「保险起见」去装 Node.js、VS Code、Homebrew——本教程一个都不需要。</li>
+      <li data-en="Use a real email for GitHub and turn on 2FA; losing the account = losing the site.">GitHub 用常用邮箱注册并开两步验证，账号丢了网站就丢了。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="2">
+    <label class="check"><input type="checkbox" data-step="2"><span class="box">✓</span><span data-en="Done — check off Step 2">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="AI ready ✓ GitHub account ready ✓">AI 能用 ✓ GitHub 账号有了 ✓</span>
+  </div>
+</section>
+
+<!-- ================= STEP 3 ================= -->
+<section class="step" id="step-3">
+  <header class="shead">
+    <span class="snum">3</span>
+    <div>
+      <h2 data-en="Step 3 · Let AI generate your first web page">第 3 步 · 让 AI 生成你的第一个网页</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="30–60 min (mostly reviewing)">30–60 分钟（主要在提意见）</span></span>
+        <span class="chip">💰 ¥0</span>
+        <span class="chip">🎯 <span data-en="Output: index.html">产出：index.html 文件</span></span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="The magic step: you describe, AI writes. Ask for ONE self-contained file so you can open it by double-click and never worry about “building” anything.">神奇的一步：你描述，AI 写代码。关键技巧是只要<b>一个文件</b>——双击就能打开，永远不用「编译」「装依赖」。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Copy the prompt template below, replace the {brackets}, and send it to your AI assistant.">把下面的提示词模板复制给 AI，把「括号里的内容」换成你的。</li>
+    <li data-en="Save the code AI returns as a file named exactly index.html (all lowercase) in a new folder.">AI 给出代码后，新建一个文件夹，把代码保存为文件名<strong>必须是</strong> <code>index.html</code>（全小写）。</li>
+    <li data-en="Not happy? Reply with concrete feedback: “make the title bigger”, “change the main color to deep green”, “add a photo gallery section”.">不满意就直接提意见：「标题大一点」「主色换成墨绿」「加一个作品图集板块」。AI 改到你满意为止。</li>
+  </ol>
+
+  <div class="cmdwrap">
+    <button class="copy" type="button" data-en="Copy">复制</button>
+    <pre class="cmd" id="promptTpl" data-en="Help me build a single-file personal website, all code in one index.html (inline HTML+CSS+JS, no external dependencies).&#10;&#10;[Purpose] {your one-sentence brief from Step 1, be specific}&#10;[Audience] {e.g. friends and potential clients}&#10;[Sections] {e.g. About / Portfolio / Contact}&#10;[Style] {e.g. clean and warm, cream background, deep green accent}&#10;[Hard requirements]&#10;1. Must look good on mobile (responsive)&#10;2. Support light and dark themes&#10;3. Write placeholder copy I can replace later">帮我做一个「单文件」个人网站，全部代码放在一个 index.html 里（HTML+CSS+JS 都内联，不用任何外部依赖）。
+
+【用途】{把第 1 步那句话需求填这里，越具体越好}
+【给谁看】{例如：朋友和潜在客户}
+【栏目】{例如：关于我 / 作品展示 / 联系方式}
+【风格】{例如：简洁温暖，米色背景，深绿主色}
+【硬性要求】
+1. 手机上打开也要好看（响应式）
+2. 支持亮色和暗色两种主题
+3. 文字内容你先按用途帮我写一版占位文案，我之后替换</pre>
+  </div>
+
+  <h3 data-en="Pros &amp; cons: why one file (and the alternatives)">利弊：为什么是单文件（以及 alternatives）</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Approach">做法</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>⭐ <span data-en="Single HTML file (this tutorial)">单文件 HTML（本教程）</span></td>
+        <td data-en="Double-click to open; zero build; deploy anywhere; easy for AI to read &amp; edit whole thing">双击就能看，零构建，随处托管，AI 一眼读完整个站改起来准</td>
+        <td data-en="Gets messy beyond ~10 pages; not for apps with logins">页面多到十几个后会乱；做不了登录类的应用</td>
+      </tr>
+      <tr>
+        <td data-en="React/Vue project">React / Vue 工程化</td>
+        <td data-en="Scales to big apps, professional workflow">能做大型应用，团队协作标准</td>
+        <td data-en="Node toolchain, build steps, deploy config — overkill for a personal site">要装 Node、要构建、要配置部署，个人站杀鸡用牛刀</td>
+      </tr>
+      <tr>
+        <td data-en="WordPress">WordPress</td>
+        <td data-en="Mature themes &amp; plugins, great for frequent text posts">主题插件成熟，适合天天发文章</td>
+        <td data-en="Needs a paid server; updates &amp; security are on you">要买服务器；升级和安全都得自己操心</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="File name must be index.html, not index.html.txt, not 我的网页.html — hosts look for exactly “index.html”.">文件名必须是 <code>index.html</code>。不要 <code>index.html.txt</code>（Windows 默认隐藏扩展名，注意关掉），不要中文名。</li>
+      <li data-en="If AI starts scaffolding five files and package.json, say: “put everything in one file, no build step.”">如果 AI 开始建五个文件和 package.json，回复：「全部放进一个文件，不要构建步骤」。</li>
+      <li data-en="Don't paste 300 lines of code back by hand — attach the file or use an agent-style assistant.">别手动来回粘贴三百行代码，直接传文件或用能读文件的助手。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="3">
+    <label class="check"><input type="checkbox" data-step="3"><span class="box">✓</span><span data-en="Done — check off Step 3">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="You have an index.html on your computer.">你的电脑里有一个 index.html 了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 4 ================= -->
+<section class="step" id="step-4">
+  <header class="shead">
+    <span class="snum">4</span>
+    <div>
+      <h2 data-en="Step 4 · Preview locally before going live">第 4 步 · 本地预览，先看效果再上线</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="10 min">10 分钟</span></span>
+        <span class="chip">💰 ¥0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="Check your work before the world can see it. It costs nothing and saves embarrassment.">上线前先自己当第一批访客。这一步免费，还能避免翻车。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Double-click index.html — it opens in your browser. That's 90% of previewing.">双击 <code>index.html</code>，浏览器直接打开——这就是 90% 的预览。</li>
+    <li data-en="Press F12 (or right-click → Inspect) and click the phone icon to preview mobile width. Most visitors are on phones!">按 <kbd>F12</kbd>（或右键→检查），点设备图标切到手机宽度看一眼。<b>大部分访客在手机上打开你的网站。</b></li>
+    <li data-en="Run through the checklist: every link clickable, images show, no placeholder text left, typos.">过一遍检查清单：链接都能点、图片都显示、没有残留的占位文字、错别字。</li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: double-click vs. local server">利弊：双击打开 vs 本地小服务器</h3>
+  <div class="pc">
+    <div class="pc-col pros">
+      <h4>✅ <span data-en="Double-click file:// (default)">双击直接打开（默认）</span></h4>
+      <ul>
+        <li data-en="Zero setup — exactly as easy as it sounds">零配置，听起来多简单就有多简单</li>
+        <li data-en="Enough for checking layout, text, colors, mobile view">看排版、文字、配色、手机版完全够用</li>
+      </ul>
+    </div>
+    <div class="pc-col cons">
+      <h4>🧪 <span data-en="Local server (advanced, optional)">本地小服务器（进阶可选）</span></h4>
+      <ul>
+        <li data-en="Needed only if your page fetches files/data or uses modules">只在页面要加载本地数据文件或用模块时才需要</li>
+        <li data-en="One command in the folder: python3 -m http.server 8000, then visit localhost:8000">在该文件夹里跑一条命令，然后访问 localhost:8000</li>
+        <li data-en="If double-click works fine, skip this entirely">双击一切正常就跳过，不用装任何东西</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="Some features (fetch, ES modules) silently fail on file:// — that's the browser protecting you, not a broken site. It'll work once deployed.">双击打开时个别功能（读取文件、模块）不生效——是浏览器安全限制，不是网站坏了，部署后正常。</li>
+      <li data-en="Huge images = slow site. Compress photos to a few hundred KB before using them.">图片几 MB 一张会让网站很慢，先压缩到几百 KB 再用。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="4">
+    <label class="check"><input type="checkbox" data-step="4"><span class="box">✓</span><span data-en="Done — check off Step 4">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="Looks good on desktop and phone.">电脑和手机宽度下都看得过去了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 5 ================= -->
+<section class="step" id="step-5">
+  <header class="shead">
+    <span class="snum">5</span>
+    <div>
+      <h2 data-en="Step 5 · Put your code on GitHub">第 5 步 · 把代码传上 GitHub</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="20 min">20 分钟</span></span>
+        <span class="chip">💰 ¥0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="GitHub is free cloud storage for code with version history — think “网盘 for websites”, but it can also run the site for you (next step).">GitHub 是免费的代码托管 + 版本历史，相当于「网站专用的网盘」，而且下一步它还能直接运行你的网站。</p>
+
+  <h3 data-en="What to do (terminal way)">你要做的事（命令行方式）</h3>
+  <ol class="ops">
+    <li data-en="Create a new repository on github.com: name it after your site (e.g. my-site), choose Public.">在 github.com 点 New repository，起个英文名（如 <code>my-site</code>），选 <b>Public</b>。</li>
+    <li data-en="In your folder, run the three commands below (first time only: git config user.name / user.email).">在 index.html 所在文件夹打开终端，依次执行：</li>
+  </ol>
+  <div class="cmdwrap">
+    <button class="copy" type="button" data-en="Copy">复制</button>
+    <pre class="cmd">git init -b main
+git add -A
+git commit -m "我的网站第一版"
+git remote add origin git@github.com:你的用户名/my-site.git
+git push -u origin main</pre>
+  </div>
+  <p style="font-size:14px;color:var(--muted)" data-en="No terminal? Plan B: on your repo page click “uploading an existing file” and drag index.html in. Same result.">完全不想碰命令行？Plan B：仓库页面点 <b>uploading an existing file</b>，把 index.html 拖进去，效果一样。</p>
+
+  <h3 data-en="Pros &amp; cons: where code lives">利弊：代码放哪</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Option">选择</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>⭐ GitHub</td>
+        <td data-en="Free, version history, one click from free hosting, world standard">免费、有版本历史、离免费托管一步之遥、全球标准</td>
+        <td data-en="Free Pages requires a Public repo — anyone can read your code">免费版 Pages 要求仓库 Public，代码公开可见</td>
+      </tr>
+      <tr>
+        <td data-en="Gitee / coding.net">Gitee 码云</td>
+        <td data-en="Fast in mainland China">大陆访问快</td>
+        <td data-en="Pages needs real-name verification &amp; review; smaller ecosystem">Pages 要实名审核；生态小</td>
+      </tr>
+      <tr>
+        <td data-en="Just local files">只存本地</td>
+        <td data-en="Simplest">最简单</td>
+        <td data-en="No backup, no deploy — one wrong delete and it's gone">没有备份不能上线，误删就没了</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="Public repo = public code. Don't put passwords, keys, or private info in it.">Public 仓库任何人可见，不要放密码、密钥、私人信息。</li>
+      <li data-en="“Permission denied” on push usually means SSH keys aren't set up — GitHub's official guide takes 5 minutes, or use the HTTPS + token option.">push 报 Permission denied 多半是 SSH 没配，照 GitHub 官方指引 5 分钟搞定，或改用 HTTPS + token。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="5">
+    <label class="check"><input type="checkbox" data-step="5"><span class="box">✓</span><span data-en="Done — check off Step 5">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="Refresh the repo page — index.html is there.">刷新仓库页面，能看到 index.html 了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 6 ================= -->
+<section class="step" id="step-6">
+  <header class="shead">
+    <span class="snum">6</span>
+    <div>
+      <h2 data-en="Step 6 · Turn on GitHub Pages — you're LIVE">第 6 步 · 开启 GitHub Pages，网站正式上线 🎉</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="5 min + up to 10 min wait">5 分钟操作 + 最长 10 分钟等待</span></span>
+        <span class="chip">💰 ¥0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="One toggle in settings and GitHub hosts your site on its global network, free, with HTTPS included.">设置里点几下，GitHub 就用它的全球服务器免费帮你运行网站，自动配好 HTTPS。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Open your repo → Settings → Pages.">仓库页 → <b>Settings</b> → 左侧 <b>Pages</b>。</li>
+    <li data-en="Source: Deploy from a branch → Branch: main, folder: / (root) → Save.">Build and deployment 选 <b>Deploy from a branch</b>：Branch 选 <code>main</code> / <code>/ (root)</code>，点 Save。</li>
+    <li data-en="Wait 1–10 minutes, refresh the Pages page, then visit https://你的用户名.github.io/my-site/ — that's your website, on the internet.">等 1–10 分钟后刷新，页顶会出现绿色链接 <code>https://你的用户名.github.io/my-site/</code>——点开它，这就是你在互联网上的网站。</li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: free static hosting compared">利弊：免费静态托管对比</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Host">托管商</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>⭐ GitHub Pages</td>
+        <td data-en="Zero extra account (you already have GitHub), dead simple, HTTPS automatic">不用再注册账号、配置最少、自动 HTTPS</td>
+        <td data-en="github.io can be slow/unstable in mainland China; static only">大陆访问 github.io 时快时慢；只能放静态站</td>
+      </tr>
+      <tr>
+        <td data-en="Vercel / Netlify">Vercel / Netlify</td>
+        <td data-en="More bells &amp; whistles (forms, functions), nice previews per commit">功能多（表单、函数）、每次提交有预览链接</td>
+        <td data-en="Another account to manage; free tier limits; China access similar">多管一个账号；免费额度限制；大陆访问差不多</td>
+      </tr>
+      <tr>
+        <td data-en="Cloudflare Pages">Cloudflare Pages</td>
+        <td data-en="Global CDN, generous free tier">全球 CDN，免费额度大方</td>
+        <td data-en="Slightly more setup for beginners">对小白配置略多一步</td>
+      </tr>
+      <tr>
+        <td data-en="China cloud server">国内云服务器</td>
+        <td data-en="Fastest for mainland visitors">大陆访客最快</td>
+        <td data-en="Costs money + mandatory ICP 备案 (weeks)">要花钱 + 强制 ICP 备案（数周流程）</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="404 after enabling: check branch=main, folder=/(root), and that the file is exactly index.html.">开了还是 404：检查分支选 main、目录选 / (root)、文件名是 index.html。</li>
+      <li data-en="Updated but page unchanged: GitHub Pages caches for ~10 minutes. Hard-refresh or add ?v=1 to the URL.">改了没变化：Pages 缓存约 10 分钟，强刷或网址后加 <code>?v=1</code>。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="6">
+    <label class="check"><input type="checkbox" data-step="6"><span class="box">✓</span><span data-en="Done — check off Step 6">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="🎉 Your website is LIVE on the internet.">🎉 你的网站已经在互联网上了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 7 ================= -->
+<section class="step" id="step-7">
+  <header class="shead">
+    <span class="snum">7</span>
+    <div>
+      <h2 data-en="Step 7 · Your own domain (optional, recommended)">第 7 步 · 绑定自己的域名（可选但推荐）</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="30–60 min (mostly waiting)">30–60 分钟（主要是等待）</span></span>
+        <span class="chip">💰 <span data-en="~¥50–80 / year">约 ¥50–80 / 年</span></span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="yourname.github.io works, but yourname.com is memorable, professional, and yours forever wherever the site moves. This is the only step that costs money — skip it freely.">github.io 地址能用，但自己的域名好记、显专业、跟着你走不绑定平台。这是全流程唯一花钱的步骤，完全可以以后再做。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Buy a domain at a registrar (Alibaba Cloud 万网 / Cloudflare / Namecheap — see table below). Search a name, pay, done.">在注册商（阿里云万网 / Cloudflare / Namecheap，见下表）搜一个喜欢的名字，付款即得。</li>
+    <li data-en="In the registrar's DNS settings add a CNAME record: 主机记录 www or @ → 你的用户名.github.io.">在域名控制台的 DNS 解析里加一条 <b>CNAME</b>：主机记录 <code>www</code>（或 <code>@</code>）→ 记录值 <code>你的用户名.github.io</code>。</li>
+    <li data-en="Repo Settings → Pages → Custom domain → fill your domain → Save. GitHub auto-issues an HTTPS certificate in minutes to an hour.">仓库 Settings → Pages → Custom domain 填入域名保存。GitHub 会在几分钟到一小时内自动签发 HTTPS 证书，勾选 Enforce HTTPS。</li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: registrars &amp; domain choices">利弊：要不要买 &amp; 在哪买</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Option">选择</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-en="Keep free github.io address">继续用免费地址</td>
+        <td data-en="¥0, nothing to do">0 元，什么都不用做</td>
+        <td data-en="Hard to remember, looks amateur, tied to the platform; can be slow in China">难记、不专业、绑定平台；大陆访问不稳</td>
+      </tr>
+      <tr>
+        <td>⭐ <span data-en="Own domain (any registrar)">自有域名</span></td>
+        <td data-en="Memorable &amp; brandable; free HTTPS; often more stable in China; independent of any host">好记有品牌感；HTTPS 免费；大陆通常更稳；换托管商域名不变</td>
+        <td data-en="~¥50–80/yr; a little DNS learning">每年几十元；要学一点 DNS</td>
+      </tr>
+      <tr>
+        <td data-en="Alibaba Cloud 万网">阿里云万网</td>
+        <td data-en="Chinese UI, Alipay, easy for CN users">中文界面支付宝，国内用户顺手</td>
+        <td data-en="Real-name required; .com prices renew higher">需实名；.com 续费略贵</td>
+      </tr>
+      <tr>
+        <td data-en="Cloudflare / Namecheap">Cloudflare / Namecheap</td>
+        <td data-en="At-cost pricing, great DNS, English only">成本价、DNS 强大；界面英文</td>
+        <td data-en="Foreign card/PayPal needed">需要外币卡或 PayPal</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="HTTPS not working right after binding is NORMAL — certificate takes minutes to an hour. Don't panic, don't keep re-saving.">绑完域名 https 打不开<b>是正常的</b>——证书签发要几分钟到一小时，别反复重新保存。</li>
+      <li data-en="DNS changes take up to 10–30 min to propagate (TTL). Patience is part of the process.">解析改动最长 10–30 分钟才全球生效（TTL 决定），等待是流程的一部分。</li>
+      <li data-en="Domain needs ICP 备案 only if you host on a mainland-China server. GitHub Pages doesn't need it.">只有用国内服务器才需要 ICP 备案；放 GitHub Pages 不需要。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="7">
+    <label class="check"><input type="checkbox" data-step="7"><span class="box">✓</span><span data-en="Done — check off Step 7">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="Your own domain opens your site with the little lock 🔒.">自己的域名 + 小锁 🔒 打开你的网站。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 8 ================= -->
+<section class="step" id="step-8">
+  <header class="shead">
+    <span class="snum">8</span>
+    <div>
+      <h2 data-en="Step 8 · Basic SEO: let search engines find you">第 8 步 · SEO 基建：让搜索引擎找到你</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="30 min">30 分钟</span></span>
+        <span class="chip">💰 ¥0</span>
+        <span class="chip">📈 <span data-en="Effect shows in weeks">效果以周计</span></span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="A site nobody can find is a diary. Thirty minutes of SEO basics buys you free traffic for years.">没人搜得到的网站等于日记。花 30 分钟做基础 SEO，换长期免费流量。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Title &amp; description: ask AI — “write an SEO title (≤30 chars) and description (≤80 chars) for a site about {your topic}”. Put them in &lt;title&gt; and the meta description tag.">让 AI 帮你写「网站主题 + 关键词」的 <code>&lt;title&gt;</code>（30 字内）和 meta description（80 字内），写进 index.html 的 <code>&lt;head&gt;</code>。</li>
+    <li data-en="Add two small files beside index.html: sitemap.xml (lists your pages) and robots.txt (allows crawlers). AI can generate both in one prompt.">在 index.html 旁边加两个小文件：<code>sitemap.xml</code>（页面清单）和 <code>robots.txt</code>（允许爬虫）。一句话让 AI 生成。</li>
+    <li data-en="Submit to Google Search Console and Bing Webmaster (import from GSC). Verify ownership, submit the sitemap, then request indexing for your homepage.">到 <b>Google Search Console</b> 和 <b>Bing 站长</b>（可从 GSC 一键导入）添加网站、验证所有权、提交 sitemap，再用「网址检查」请求编入索引。</li>
+  </ol>
+
+  <h3 data-en="Pros &amp; cons: doing SEO now vs. never">利弊：现在做 SEO vs 不做</h3>
+  <div class="pc">
+    <div class="pc-col pros">
+      <h4>✅ <span data-en="Do the basics now">现在做基础</span></h4>
+      <ul>
+        <li data-en="30 minutes, once, free traffic forever">30 分钟一次投入，长期免费流量</li>
+        <li data-en="New sites sit in a ~3-month “sandbox” — submit early so the clock starts now">新站有约 3 个月沙盒期，早提交早开始计时</li>
+        <li data-en="Title/description also make social shares look good">标题描述同时决定分享链接的样子</li>
+      </ul>
+    </div>
+    <div class="pc-col cons">
+      <h4>⚠️ <span data-en="Skip it / postpone">不做 / 以后再说</span></h4>
+      <ul>
+        <li data-en="Fine if you only share the link directly (WeChat, posts)">只靠微信/帖子里直接发链接的话，确实能等</li>
+        <li data-en="But search traffic stays exactly zero; every future share starts from scratch">搜索来源永远是 0，每次都从零开始</li>
+        <li data-en="Deep SEO (content matrix, backlinks) can wait — basics can't">进阶 SEO（内容矩阵、外链）可以以后，基础不能省</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="GSC sitemap saying “couldn't fetch” right after submitting is usually a false alarm — wait 72h instead of resubmitting.">提交 sitemap 后提示「无法读取」多为新站误报，等 72 小时，别反复重交。</li>
+      <li data-en="Expect ≈0 search traffic the first months. That's the sandbox, not failure.">前几个月搜索流量≈0 是沙盒期正常现象，不是失败。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="8">
+    <label class="check"><input type="checkbox" data-step="8"><span class="box">✓</span><span data-en="Done — check off Step 8">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="Google knows your site exists.">搜索引擎已经知道你的网站存在了。</span>
+  </div>
+</section>
+
+<!-- ================= STEP 9 ================= -->
+<section class="step" id="step-9">
+  <header class="shead">
+    <span class="snum">9</span>
+    <div>
+      <h2 data-en="Step 9 · Measure, share, and keep iterating">第 9 步 · 统计、推广与持续迭代</h2>
+      <div class="chips">
+        <span class="chip">⏱ <span data-en="20 min to set up, a habit to keep">20 分钟起步，长期习惯</span></span>
+        <span class="chip">💰 ¥0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="A website is a garden, not a statue. Here's the maintenance loop that costs minutes per week.">网站是花园不是雕像。这一步给你一个每周只花几分钟的维护循环。</p>
+
+  <h3 data-en="What to do">你要做的事</h3>
+  <ol class="ops">
+    <li data-en="Install free analytics: Cloudflare Web Analytics — add a site, paste one line of script before &lt;/body&gt;. No cookies, no consent banner.">装免费统计：Cloudflare Web Analytics，添加站点后把一行脚本贴到 <code>&lt;/body&gt;</code> 前。无 Cookie、不用弹同意框。</li>
+    <li data-en="Share where your audience hangs out: 朋友圈 / 微信群 / 小红书 / V2EX / Reddit — write what problem it solves, attach the link, reply to comments.">把网站发到目标用户在的地方：朋友圈、微信群、小红书、V2EX、Reddit。写清楚它解决什么问题，附链接，发完守一小时评论区。</li>
+    <li data-en="Iterate: every change is edit → git add → git commit → git push → live in ~1 minute. Collect questions and turn them into site content.">迭代：每次修改 = 改文件 → 三条 git 命令 → 约 1 分钟自动上线。把朋友问过的问题沉淀成网站内容，网站会越来越有用。</li>
+  </ol>
+  <div class="cmdwrap">
+    <button class="copy" type="button" data-en="Copy">复制</button>
+    <pre class="cmd">git add -A
+git commit -m "改了联系方式和两张图"
+git push</pre>
+  </div>
+
+  <h3 data-en="Pros &amp; cons: analytics options">利弊：统计方案对比</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Tool">工具</th><th data-en="Pros">优点</th><th data-en="Cons">缺点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>⭐ Cloudflare Web Analytics</td>
+        <td data-en="Free, no cookies, no consent banner, one-line install">免费、无 Cookie、无合规弹窗、一行代码</td>
+        <td data-en="Basic metrics only (views, visits, referrers, countries)">指标较基础（浏览/访客/来源/国家）</td>
+      </tr>
+      <tr>
+        <td>GA4（Google Analytics）</td>
+        <td data-en="The industry standard, deep analysis">行业标准，分析维度最深</td>
+        <td data-en="Consent banner required; overkill for personal sites; blocked by many ad-blockers">要合规横幅；个人站用不上；常被拦截</td>
+      </tr>
+      <tr>
+        <td data-en="Plausible / GoatCounter">Plausible / GoatCounter</td>
+        <td data-en="Clean, privacy-first">干净、隐私优先</td>
+        <td data-en="Plausible $9+/mo (GoatCounter free for non-commercial)">Plausible 收费（GoatCounter 非商用免费）</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pit">
+    <h4>⚠️ <span data-en="Common pitfalls">小白常踩的坑</span></h4>
+    <ul>
+      <li data-en="Don't rush ads. With near-zero traffic they earn nothing and make the site ugly. Revisit after you have regular visitors.">别急着挂广告：没流量的广告收入约等于 0，还让网站变丑。有回访用户后再考虑。</li>
+      <li data-en="Don't post the same link to ten communities in one hour — spread over days, and be upfront that it's your own project.">别一小时内把同一链接轰炸十个社区——错开几天，并且明说「这是我自己做的」。</li>
+    </ul>
+  </div>
+
+  <div class="checkrow" data-row="9">
+    <label class="check"><input type="checkbox" data-step="9"><span class="box">✓</span><span data-en="Done — check off Step 9">做完这一步，打个勾</span></label>
+    <span style="color:var(--muted);font-size:13px" data-en="You now run a living website. 🌱">你的网站开始自我生长了。🌱</span>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <section class="routebox" style="margin-top:34px">
+    <h2 data-en="FAQ">常见问题</h2>
+    <details class="faq" open>
+      <summary data-en="I can't code at all. Will this really work for me?">我完全不会写代码，真的能做出来吗？</summary>
+      <div class="ans" data-en="Yes. All code in this route is written by the AI assistant — your job is describing what you want clearly, copy-pasting along the steps, and clicking a few buttons. Every step lists exact operations and common pitfalls; when something breaks, paste the error back to the AI and it usually hands you the fix.">能。这条路线的全部代码由 AI 编程助手生成，你负责说清楚想要什么、按步骤复制粘贴和点几下鼠标。本教程每一步都写明了具体操作和常见坑，遇到问题时把报错原样发给 AI，它通常会直接给出修复。</div>
+    </details>
+    <details class="faq">
+      <summary data-en="How much does the whole thing cost?">全程要花多少钱？</summary>
+      <div class="ans" data-en="It can be ¥0 end to end: AI assistants have free tiers, GitHub and GitHub Pages are free, and your site is served at https://yourname.github.io/repo/. The only optional spend is your own domain at roughly ¥50–80 per year.">可以全程 0 元：AI 用免费额度起步，GitHub 和 GitHub Pages 免费，网站以 https://你的用户名.github.io/仓库名/ 访问。唯一可能的花费是可选的自有域名，每年约 50–80 元。</div>
+    </details>
+    <details class="faq">
+      <summary data-en="Do I need to buy a server?">需要买服务器吗？</summary>
+      <div class="ans" data-en="No. Static sites are hosted on GitHub Pages and served by GitHub's global network — plenty for personal sites. When you later need logins, payments, or a database, then look at servers or cloud functions.">不需要。静态网站托管在 GitHub Pages 上，访问量由 GitHub 的全球网络承担，个人网站完全够用。以后需要用户注册、支付、数据库等后端能力时，再考虑服务器或云函数。</div>
+    </details>
+    <details class="faq">
+      <summary data-en="How do I change text or images after launch?">网站上线后想改文字或图片怎么办？</summary>
+      <div class="ans" data-en="Tell the AI what to change (or edit the matching lines in index.html yourself), save, then run git add, git commit, git push — the live site updates in about a minute. That's the biggest perk of this flow: updating a website is as easy as editing a document.">把需求告诉 AI（或自己改 index.html 对应文字），保存后执行 git add、git commit、git push 三条命令，大约 1 分钟后线上自动更新。这就是这套流程最大的好处：改起来和改文档一样简单。</div>
+    </details>
+    <details class="faq">
+      <summary data-en="GitHub Pages is slow for me in mainland China — what now?">我在中国大陆，GitHub Pages 打开慢怎么办？</summary>
+      <div class="ans" data-en="Three options: ① bind your own domain (Step 7) — usually more stable than the github.io address; ② compress images before uploading; ③ if your audience is mostly in China and speed is critical, consider Gitee Pages or a mainland server with ICP 备案 — the trade-off is real-name verification, filing paperwork, and a longer process.">三个办法：一，绑定自有域名（本教程第 7 步），通常比 github.io 域名稳定；二，图片压缩后再上传；三，如果主要受众在大陆且要求很快，可考虑 Gitee Pages 或国内云服务器加备案的路线，代价是需要实名与备案、流程更长。</div>
+    </details>
+    <details class="faq">
+      <summary data-en="Must I do everything in order in one sitting?">必须按顺序一次做完吗？</summary>
+      <div class="ans" data-en="No. Steps 1–6 are sequential and take about half a day together; steps 7–9 are independent — do them anytime. Your check-off progress is saved automatically in your browser, so close the tab and continue next time.">不必。第 1–6 步按顺序做（约半天），第 7–9 步相互独立，随时可做。每一步的完成状态会自动保存在你的浏览器里，下次打开继续。</div>
+    </details>
+  </section>
+
+  <footer class="foot">
+    <p>🚀 <span data-en="This site practices what it preaches: single-file HTML, built with an AI assistant, hosted free on GitHub Pages at ">本站即活案例：单文件 HTML、AI 辅助编写、GitHub Pages 免费托管于 </span><a href="https://fast-site.kuige.me/" target="_blank" rel="noopener">fast-site.kuige.me</a><span data-en=", source on ">，源码在 </span><a href="https://github.com/Tliens/fast-site" target="_blank" rel="noopener">GitHub</a>。</p>
+    <p><span data-en="More tools and sites by Kuige: ">魁歌的更多工具站：</span><a href="https://kuige.me/" target="_blank" rel="noopener">kuige.me</a> · © 2026 <span data-en="Kuige">魁歌</span></p>
+  </footer>
+</section>
+
+</main>
+</div>
+
+<script type="module">
+/* ================= i18n ================= */
+const TITLES = {
+  zh: '魁歌帮你快速建站 — 零基础 9 步，半天做出并上线你的网站',
+  en: 'Build a Website Fast with Kuige — 9 Steps for Total Beginners'
+};
+const DESCS = {
+  zh: '零基础也能半天做出并上线自己的网站：魁歌的 9 步建站教程，用 AI 编程助手生成网页 + GitHub Pages 免费托管，每步都有操作指引、利弊对比和避坑提示。',
+  en: 'Build and launch your own website in half a day with zero coding background: Kuige\u2019s 9-step tutorial — AI-generated pages, free GitHub Pages hosting, with pros & cons and pitfalls for every step.'
+};
+const OGT = {
+  zh: '魁歌帮你快速建站 — 零基础 9 步，半天上线你的网站',
+  en: 'Kuige Helps You Build a Website Fast — 9 Steps for Total Beginners'
+};
+const OGD = {
+  zh: '零基础跟着 9 步做：AI 生成网页 + GitHub Pages 免费托管，每步有利弊对比和避坑提示。',
+  en: 'Follow 9 beginner-proof steps: AI writes your pages, GitHub Pages hosts them free — pros, cons and pitfalls included.'
+};
+const DYN = {
+  zh: { copied: '已复制 ✓', reset: '确定要清空全部进度吗？' },
+  en: { copied: 'Copied ✓', reset: 'Reset all step progress?' }
+};
+let lang = 'zh';
+
+function applyLang(l, pushUrl) {
+  lang = l;
+  document.documentElement.lang = l === 'en' ? 'en' : 'zh-CN';
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (l === 'en') {
+      if (!el.dataset.zhBk) el.dataset.zhBk = el.innerHTML;
+      el.textContent = el.dataset.en;
+    } else if (el.dataset.zhBk) {
+      el.innerHTML = el.dataset.zhBk;
+    }
+  });
+  document.title = TITLES[l];
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', DESCS[l]);
+  const set = (sel, val) => { const m = document.querySelector(sel); if (m) m.setAttribute('content', val); };
+  set('meta[property="og:title"]', OGT[l]);
+  set('meta[property="og:description"]', OGD[l]);
+  set('meta[property="og:locale"]', l === 'en' ? 'en_US' : 'zh_CN');
+  set('meta[name="twitter:title"]', OGT[l]);
+  set('meta[name="twitter:description"]', OGD[l]);
+  const lb = document.getElementById('langBtn');
+  if (lb) lb.textContent = l === 'en' ? '中' : 'EN';
+  try { localStorage.setItem('fs_lang_v1', l); } catch (e) {}
+  if (pushUrl) {
+    const u = new URL(location.href);
+    if (l === 'en') u.searchParams.set('lang', 'en'); else u.searchParams.delete('lang');
+    history.replaceState(null, '', u);
+  }
+}
+
+/* ================= 主题 ================= */
+const THEMES = ['auto', 'light', 'dark'];
+const TICON = { auto: '🌤️', light: '☀️', dark: '🌙' };
+function cycleTheme() {
+  const cur = document.documentElement.dataset.theme || 'auto';
+  const next = THEMES[(THEMES.indexOf(cur) + 1) % 3];
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem('fs_theme_v1', next); } catch (e) {}
+  const b = document.getElementById('themeBtn');
+  if (b) b.textContent = TICON[next];
+}
+
+/* ================= 进度 ================= */
+const KEY = 'fs_done_v1';
+function getDone() {
+  try { return new Set(JSON.parse(localStorage.getItem(KEY) || '[]')); } catch (e) { return new Set(); }
+}
+function saveDone(s) {
+  try { localStorage.setItem(KEY, JSON.stringify([...s])); } catch (e) {}
+}
+function refreshProgress() {
+  const done = getDone();
+  const n = [...done].filter(x => x >= 1 && x <= 9).length;
+  const fill = document.getElementById('progFill');
+  const txt = document.getElementById('progText');
+  if (fill) fill.style.width = (n / 9 * 100) + '%';
+  if (txt) txt.textContent = n + '/9';
+  document.querySelectorAll('.toc a[data-toc]').forEach(a => {
+    const v = a.dataset.toc;
+    a.classList.toggle('done', v !== 'route' && v !== 'faq' && done.has(Number(v)));
+  });
+  document.querySelectorAll('.rm-chip').forEach(c => {
+    c.classList.toggle('done', done.has(Number(c.dataset.step)));
+  });
+  document.querySelectorAll('.checkrow').forEach(r => {
+    r.classList.toggle('done', done.has(Number(r.dataset.row)));
+  });
+  const ad = document.getElementById('allDone');
+  if (ad) ad.hidden = n < 9;
+}
+
+/* ================= scrollspy ================= */
+const spySections = ['route', 'step-1', 'step-2', 'step-3', 'step-4', 'step-5', 'step-6', 'step-7', 'step-8', 'step-9', 'faq'];
+function spy() {
+  let cur = spySections[0];
+  for (const id of spySections) {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 140) cur = id;
+  }
+  document.querySelectorAll('.toc a[data-toc]').forEach(a => {
+    const v = a.dataset.toc;
+    const on = (v === 'route' && cur === 'route') || (v === 'faq' && cur === 'faq') || (v === cur.replace('step-', ''));
+    a.classList.toggle('on', on);
+  });
+}
+
+/* ================= init ================= */
+const qp = new URLSearchParams(location.search);
+let initLang = 'zh';
+if (qp.get('lang') === 'en') initLang = 'en';
+else if (qp.get('lang') === 'zh') initLang = 'zh';
+else { try { initLang = localStorage.getItem('fs_lang_v1') === 'en' ? 'en' : 'zh'; } catch (e) {} }
+if (initLang === 'en') applyLang('en', false);
+
+const themeBtn = document.getElementById('themeBtn');
+if (themeBtn) { themeBtn.textContent = TICON[document.documentElement.dataset.theme || 'auto']; themeBtn.addEventListener('click', cycleTheme); }
+const langBtn = document.getElementById('langBtn');
+if (langBtn) langBtn.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en', true));
+
+document.querySelectorAll('.check input[data-step]').forEach(inp => {
+  inp.checked = getDone().has(Number(inp.dataset.step));
+  inp.addEventListener('change', () => {
+    const s = new Set(getDone());
+    const n = Number(inp.dataset.step);
+    if (inp.checked) s.add(n); else s.delete(n);
+    saveDone(s);
+    refreshProgress();
+  });
+});
+
+const resetBtn = document.getElementById('resetBtn');
+if (resetBtn) resetBtn.addEventListener('click', () => {
+  if (!confirm(DYN[lang].reset)) return;
+  saveDone(new Set());
+  document.querySelectorAll('.check input[data-step]').forEach(i => { i.checked = false; });
+  refreshProgress();
+});
+
+document.querySelectorAll('.copy').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const pre = btn.parentElement.querySelector('pre');
+    if (!pre) return;
+    const txt = pre.textContent;
+    let ok = false;
+    try { await navigator.clipboard.writeText(txt); ok = true; } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok = true; } catch (e2) {}
+      ta.remove();
+    }
+    if (ok) {
+      const old = btn.textContent;
+      btn.textContent = DYN[lang].copied;
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    }
+  });
+});
+
+refreshProgress();
+spy();
+let spyT = null;
+window.addEventListener('scroll', () => {
+  if (spyT) return;
+  spyT = setTimeout(() => { spyT = null; spy(); }, 150);
+}, { passive: true });
+setInterval(() => { if (!document.hidden) spy(); }, 800);
+
+/* 平滑滚动兜底：内嵌 WebView 会冻结 smooth 滚动，检测未移动则步进动画 */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const target = el.getBoundingClientRect().top + window.scrollY - 76;
+    try { window.scrollTo({ top: target, behavior: 'smooth' }); } catch (_) { window.scrollTo({ top: target, behavior: 'instant' }); }
+    setTimeout(() => {
+      if (Math.abs(window.scrollY - target) > 8) {
+        const start = window.scrollY, t0 = Date.now(), dur = 400;
+        const step = () => {
+          const p = Math.min(1, (Date.now() - t0) / dur);
+          window.scrollTo({ top: start + (target - start) * (1 - Math.pow(1 - p, 3)), behavior: 'instant' });
+          if (p < 1) setTimeout(step, 16);
+        };
+        step();
+      }
+    }, 140);
+    history.replaceState(null, '', '#' + id);
+  });
+});
+</script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "948f2535a9dd4775a436c677b3c950e4"}'></script>
+</body>
+</html>
