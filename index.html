@@ -55,27 +55,31 @@
 <style>
 :root{
   --bg:#f6f7fb;--card:#ffffff;--text:#1c2130;--muted:#5b6472;--border:#e4e7f0;
-  --accent:#4f6bf0;--accent-soft:#eef1fe;--teal:#0e9f94;--warn-bg:#fff7ea;--warn-bd:#f5dfb8;
+  --accent:#2b7fff;--accent-soft:#e9f2ff;--teal:#0aa2c0;--warn-bg:#fff7ea;--warn-bd:#f5dfb8;
   --ok:#178a50;--shadow:0 1px 3px rgba(20,28,60,.06),0 8px 24px rgba(20,28,60,.05);
   --code-bg:#f0f2f8;--chip-bg:#eef0f7;
 }
 @media (prefers-color-scheme: dark){
   :root[data-theme="auto"]{
-    --bg:#0e1320;--card:#161c2c;--text:#e8ebf4;--muted:#98a1b8;--border:#273048;
-    --accent:#7b93ff;--accent-soft:#1d2540;--teal:#2dd4bf;--warn-bg:#2a2113;--warn-bd:#57431c;
-    --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
-    --code-bg:#111726;--chip-bg:#1d2436;
+    --bg:#070b13;--card:#0d1421;--text:#e7edf8;--muted:#8d9ab3;--border:#1c2940;
+    --accent:#4da6ff;--accent-soft:#0e1d33;--teal:#22d3ee;--warn-bg:#231a0d;--warn-bd:#57431c;
+    --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.5),0 10px 32px rgba(77,166,255,.09);
+    --code-bg:#0a101c;--chip-bg:#131e30;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0e1320;--card:#161c2c;--text:#e8ebf4;--muted:#98a1b8;--border:#273048;
-  --accent:#7b93ff;--accent-soft:#1d2540;--teal:#2dd4bf;--warn-bg:#2a2113;--warn-bd:#57431c;
-  --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
-  --code-bg:#111726;--chip-bg:#1d2436;
+  --bg:#070b13;--card:#0d1421;--text:#e7edf8;--muted:#8d9ab3;--border:#1c2940;
+  --accent:#4da6ff;--accent-soft:#0e1d33;--teal:#22d3ee;--warn-bg:#231a0d;--warn-bd:#57431c;
+  --ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.5),0 10px 32px rgba(77,166,255,.09);
+  --code-bg:#0a101c;--chip-bg:#131e30;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+/* 天工鲁班辉光氛围：黑底经 screen 混合隐去，只留电光蓝辉光（ShareForge 猫影同款处理） */
+body::before{content:"";position:fixed;right:-70px;bottom:-50px;width:74vmin;height:74vmin;background:url('ambient.webp') center/contain no-repeat;mix-blend-mode:screen;opacity:.17;pointer-events:none;z-index:-1}
+:root[data-theme="light"] body::before{opacity:.08}
+@media (prefers-color-scheme: light){:root[data-theme="auto"] body::before{opacity:.08}}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px}
@@ -85,7 +89,7 @@ img{max-width:100%}
 /* ===== 顶栏 ===== */
 .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:10px 20px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;white-space:nowrap}
-.brand .logo{width:26px;height:26px;flex:none;border-radius:6px}
+.brand .logo{width:26px;height:26px;flex:none;border-radius:6px;border:1px solid var(--border)}
 .brand .slogan{font-size:12.5px;font-weight:500;color:var(--muted);white-space:nowrap}
 .brand .slogan::before{content:"·";margin:0 8px;font-weight:700}
 .prog{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
@@ -227,6 +231,7 @@ footer.foot p{margin:6px 0}
 @media print{
   .topbar,.toc,.roadmap,.copy,.checkrow{display:none!important}
   body{background:#fff}
+  body::before{display:none}
 }
 </style>
 </head>
