@@ -1,6 +1,6 @@
-# 魁歌帮你快速建站 (Kuige Fast Site)
+# 魁歌建站指南 (Kuige Website Guide)
 
-零基础 9 步建站教程：用 AI 编程助手生成网页 + GitHub Pages 免费托管，半天从零上线一个自己的网站。每步附具体操作、利弊对比与避坑提示。
+零基础 9 步建站教程（小白跟着步骤也能做好）：用 AI 编程助手生成网页 + GitHub Pages 免费托管，半天从零上线一个自己的网站。每步附具体操作、利弊对比与避坑提示。
 
 - 线上：<https://fast-site.kuige.me/>
 - 形态：单文件 index.html（内联 CSS/JS，零构建、零外部 JS 依赖）
