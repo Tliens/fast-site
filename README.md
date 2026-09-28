@@ -1,4 +1,4 @@
-# 魁歌建站指南 (Kuige Website Guide)
+# 魁歌AI建站完全指南 (Kuige AI Website Guide)
 
 零基础 9 步建站教程（小白跟着步骤也能做好）：用 AI 编程助手生成网页 + GitHub Pages 免费托管，半天从零上线一个自己的网站。每步附具体操作、利弊对比与避坑提示。
 
