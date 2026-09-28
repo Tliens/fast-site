@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="zh" href="https://fast-site.kuige.me/">
 <link rel="alternate" hreflang="en" href="https://fast-site.kuige.me/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://fast-site.kuige.me/">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="魁歌 Kuige">
 <meta property="og:title" content="魁歌AI建站完全指南 — 零基础 9 步，半天上线你的网站">
@@ -76,10 +76,6 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
-/* 天工鲁班辉光氛围：黑底经 screen 混合隐去，只留电光蓝辉光（ShareForge 猫影同款处理） */
-body::before{content:"";position:fixed;right:-70px;bottom:-50px;width:74vmin;height:74vmin;background:url('ambient.webp') center/contain no-repeat;mix-blend-mode:screen;opacity:.17;pointer-events:none;z-index:-1}
-:root[data-theme="light"] body::before{opacity:.08}
-@media (prefers-color-scheme: light){:root[data-theme="auto"] body::before{opacity:.08}}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px}
@@ -183,6 +179,9 @@ table.cmp td:first-child{font-weight:600;white-space:nowrap}
 /* 完成勾选 */
 .checkrow{display:flex;align-items:center;gap:12px;margin-top:20px;padding:14px 16px;border:1.5px dashed var(--border);border-radius:12px}
 .checkrow.done{border-style:solid;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 7%,transparent)}
+/* 咨询作者引导 */
+.askauthor{margin:12px 0 0;font-size:13.5px;color:var(--muted)}
+.askauthor a{font-weight:600}
 .check{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
 .check input{position:absolute;opacity:0;pointer-events:none}
 .check .box{width:24px;height:24px;flex:none;border:2px solid var(--border);border-radius:7px;display:grid;place-items:center;font-size:15px;color:transparent;transition:.15s;background:var(--card)}
@@ -231,7 +230,6 @@ footer.foot p{margin:6px 0}
 @media print{
   .topbar,.toc,.roadmap,.copy,.checkrow{display:none!important}
   body{background:#fff}
-  body::before{display:none}
 }
 </style>
 </head>
@@ -239,7 +237,7 @@ footer.foot p{margin:6px 0}
 
 <header class="topbar">
   <div class="brand">
-    <img class="logo" src="logo.png" width="26" height="26" alt="" aria-hidden="true" title="天工鲁班 · Tiangong Luban">
+    <img class="logo" src="logo.png?v=2" width="26" height="26" alt="" aria-hidden="true" title="天工鲁班 · Tiangong Luban">
     <span class="bt" data-en="Kuige · AI Web Builder">魁歌AI建站</span>
     <span class="slogan" data-en="No experience, no code — build your site free">零基础，零代码也能免费建站</span>
   </div>
@@ -420,6 +418,7 @@ footer.foot p{margin:6px 0}
     <label class="check"><input type="checkbox" data-step="1"><span class="box">✓</span><span data-en="Done — check off Step 1">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="You now have a one-sentence brief.">你现在有一句话需求了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 2 ================= -->
@@ -482,6 +481,7 @@ footer.foot p{margin:6px 0}
     <label class="check"><input type="checkbox" data-step="2"><span class="box">✓</span><span data-en="Done — check off Step 2">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="AI ready ✓ GitHub account ready ✓">AI 能用 ✓ GitHub 账号有了 ✓</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 3 ================= -->
@@ -557,6 +557,7 @@ footer.foot p{margin:6px 0}
     <label class="check"><input type="checkbox" data-step="3"><span class="box">✓</span><span data-en="Done — check off Step 3">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="You have an index.html on your computer.">你的电脑里有一个 index.html 了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 4 ================= -->
@@ -611,6 +612,7 @@ footer.foot p{margin:6px 0}
     <label class="check"><input type="checkbox" data-step="4"><span class="box">✓</span><span data-en="Done — check off Step 4">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="Looks good on desktop and phone.">电脑和手机宽度下都看得过去了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 5 ================= -->
@@ -683,6 +685,7 @@ git push -u origin main</pre>
     <label class="check"><input type="checkbox" data-step="5"><span class="box">✓</span><span data-en="Done — check off Step 5">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="Refresh the repo page — index.html is there.">刷新仓库页面，能看到 index.html 了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 6 ================= -->
@@ -743,6 +746,7 @@ git push -u origin main</pre>
     <label class="check"><input type="checkbox" data-step="6"><span class="box">✓</span><span data-en="Done — check off Step 6">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="🎉 Your website is LIVE on the internet.">🎉 你的网站已经在互联网上了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 7 ================= -->
@@ -803,6 +807,7 @@ git push -u origin main</pre>
     <label class="check"><input type="checkbox" data-step="7"><span class="box">✓</span><span data-en="Done — check off Step 7">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="Your own domain opens your site with the little lock 🔒.">自己的域名 + 小锁 🔒 打开你的网站。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 8 ================= -->
@@ -859,6 +864,7 @@ git push -u origin main</pre>
     <label class="check"><input type="checkbox" data-step="8"><span class="box">✓</span><span data-en="Done — check off Step 8">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="Google knows your site exists.">搜索引擎已经知道你的网站存在了。</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= STEP 9 ================= -->
@@ -925,6 +931,7 @@ git push</pre>
     <label class="check"><input type="checkbox" data-step="9"><span class="box">✓</span><span data-en="Done — check off Step 9">做完这一步，打个勾</span></label>
     <span style="color:var(--muted);font-size:13px" data-en="You now run a living website. 🌱">你的网站开始自我生长了。🌱</span>
   </div>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= 秘密武器 ================= -->
@@ -980,6 +987,7 @@ git push</pre>
   </div>
 
   <p class="liveref">🤖 <span data-en="Use it with AI: paste this whole page (9 steps + arsenal) into your AI assistant and ask it to follow the workflow for your next site — that's the full intended usage of this tutorial.">配合 AI 使用：把本页（9 步 + 秘密武器）整段丢给你的 AI 助手，让它按这套流程帮你做下一个站——这才是教程的完整用法。</span></p>
+  <p class="askauthor">🙋 <span data-en="Stuck? Hit a problem? ">遇到问题？卡住了？</span><a href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Ask the author on X">咨询作者（X）</a></p>
 </section>
 
 <!-- ================= FAQ ================= -->
