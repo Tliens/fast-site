@@ -260,6 +260,7 @@ footer.foot p{margin:6px 0}
   <a href="#step-7" data-toc="7"><span class="tnum">7</span><span data-en="Bind your own domain">绑定自有域名</span><span class="tdone">✓</span></a>
   <a href="#step-8" data-toc="8"><span class="tnum">8</span><span data-en="Basic SEO">SEO 让人搜到你</span><span class="tdone">✓</span></a>
   <a href="#step-9" data-toc="9"><span class="tnum">9</span><span data-en="Track &amp; iterate">统计推广与迭代</span><span class="tdone">✓</span></a>
+  <a href="#arsenal" data-toc="arsenal"><span class="tnum">★</span><span data-en="Secret arsenal">秘密武器</span><span class="tdone"></span></a>
   <a href="#faq" data-toc="faq"><span class="tnum">?</span><span data-en="FAQ">常见问题</span><span class="tdone"></span></a>
 </nav>
 
@@ -921,6 +922,60 @@ git push</pre>
   </div>
 </section>
 
+<!-- ================= 秘密武器 ================= -->
+<section class="step" id="arsenal">
+  <header class="shead">
+    <span class="snum">★</span>
+    <div>
+      <h2 data-en="Secret Arsenal · The workflow behind every site I ship">秘密武器 · 我做每个站都在用的流程</h2>
+      <div class="chips">
+        <span class="chip">🎯 <span data-en="For you who finished the 9 steps">给做完 9 步的你</span></span>
+        <span class="chip">💰 $0</span>
+      </div>
+    </div>
+  </header>
+  <p class="lead" data-en="The 9 steps above are the minimum path to launch. This section is the working system I keep privately and follow on every site — the methods and every pitfall I actually hit are written down here. Now it's yours.">上面 9 步是让你上线的最小路径。这一节是我私下维护、每个站都照着做的工作流——方法和真实踩过的坑全记在里面。现在它是你的了。</p>
+
+  <h3 data-en="Weapon 1 · The naming formula — naming is your first SEO decision">武器一 · 命名公式——起名是第一个 SEO 决策</h3>
+  <p data-en="A name decides the repo name, subdomain, title and H1 all at once — one naming decision, four places winning or losing together.">名字同时决定仓库名、子域名、title 和 H1——一次起名，四处同时受益或受损。</p>
+  <ol class="ops">
+    <li data-en="Formula = core search keyword + brandable modifier. TokenLens, JSON Lens, SSE Inspector all follow it: people search tool words like “json formatter”, so put the keyword in the name and title, H1, domain and brand all match at once.">公式 = 核心搜索词 + 可品牌化的修饰词。TokenLens、JSON Lens、SSE Inspector 都是这个模式：用户搜的是 “json formatter” 这类工具词，关键词进名字，title、H1、域名、品牌词四处同时吃到匹配。</li>
+    <li data-en="Keep it ≤ 2 words / about 16 characters. Titles are built as “Name — keyword description”; past ~60 characters search results get truncated.">控制在 2 个词、约 16 字符内。title 按「名字 — 关键词描述」拼，总长超约 60 字符会被搜索结果截断。</li>
+    <li data-en="Avoid both extremes: pure generic words (“JSON Formatter”) can't outrank established sites; pure brand words (“Lens”) can't be searched. Keyword + brandable modifier wins both ends.">避开两个极端：纯通用词排不过老站，纯品牌词没人搜得到。关键词 + 品牌化修饰词，两头都占。</li>
+    <li data-en="Three checks before committing: search the name to see if a known product already owns it; check the repo name is free; check the subdomain isn't taken.">定稿前三查：搜一下是否已有同名知名产品（有就换，否则品牌词搜索永远被它压着）、仓库名是否被占、子域名是否被占。</li>
+  </ol>
+
+  <h3 data-en="Weapon 2 · Verify dependencies before writing code">武器二 · 写代码前，先验证依赖</h3>
+  <p data-en="Don't guess CDN paths or API fields from memory. Before writing any code, verify each external resource with curl, then run your parsing rules against real data samples — this alone removes most “the AI's code doesn't run” moments.">别凭记忆猜 CDN 路径和接口字段。写码前逐个用 curl 验证外部资源，再用真实数据样本跑一遍解析规则——光这一条就能消掉大部分「AI 写的代码跑不通」。</p>
+  <ol class="ops">
+    <li data-en="External data loads in three fallbacks: a small daily-built JSON → the live API → built-in fallback data. Merge field by field (only overwrite non-empty values) — never replace the whole object, live data often has missing fields.">外部数据三级回退：每日构建的小 JSON → 直连全量接口 → 内置兜底数据。合并时逐字段覆盖（非空才覆盖），不要整条替换——在线数据常见缺字段。</li>
+    <li data-en="Every network request gets a timeout (AbortController, 8–15s); heavy computation gets an input limit and auto-degrades to estimation, with the “exact / estimated” badge following suit.">所有网络请求加超时（AbortController，8–15 秒）；重计算设输入上限，超限自动降级为估算，「精确 / 估算」徽标同步跟着变。</li>
+    <li data-en="Multilingual pages: write the default language copy directly into the HTML (crawlers don't run JS). Language priority: URL param → localStorage → browser language.">多语言页面：默认语言的文案直接预填进 HTML（爬虫不执行 JS）。语言优先级：URL 参数 → localStorage → 浏览器语言。</li>
+    <li data-en="Testing: start a local server (python3 -m http.server) before opening the page in a browser — don't test features via file://; after deploy, verify with a random query parameter to bypass GitHub Pages' 10-minute cache.">测试：先起本地服务（python3 -m http.server）再开浏览器测功能，别用 file:// 测；上线后验证要带随机参数，绕过 GitHub Pages 的 10 分钟缓存。</li>
+  </ol>
+
+  <h3 data-en="Weapon 3 · The pitfall list — every entry really happened">武器三 · 高频坑清单——每条都真实踩过</h3>
+  <div class="tw">
+  <table class="cmp">
+    <thead><tr><th data-en="Pitfall">坑</th><th data-en="Fix">解法</th></tr></thead>
+    <tbody>
+      <tr><td data-en="Browser shows the old page right after deploy">部署后浏览器显示旧页面</td><td data-en="GitHub Pages caches ~10 min; verify with a random ?v=1 parameter">Pages 缓存约 10 分钟，验证时网址后加 ?v=1 这类随机参数</td></tr>
+      <tr><td data-en="GSC says sitemap “couldn't fetch”">提交 sitemap 后 GSC 显示「无法读取」</td><td data-en="Common false alarm for new sites — wait 72h, don't resubmit; faster: URL Inspection → Request indexing">新站常见误报，等 72 小时别反复重交；更快的路：网址检查 → 请求编入索引</td></tr>
+      <tr><td data-en="Zero search traffic for the first months">新站两三个月搜索流量为 0</td><td data-en="Sandbox period, not a penalty — keep updating and wait it out">沙盒期正常现象，不是被惩罚，持续更新等爬取</td></tr>
+      <tr><td data-en="Reddit deletes your link post instantly">Reddit 新号发链接秒被删</td><td data-en="Auto filter: comment daily to build karma first, or post the GitHub repo link only; appeal to mods, never repost">自动过滤器所致：先每天纯评论养号，或只发 GitHub 仓库链接；可给版主写申诉信，勿重复发帖</td></tr>
+      <tr><td data-en="Blasting the same link to ten communities in a day">同一链接一天轰炸十个社区</td><td data-en="Stagger 2–3 days; disclose “I'm the author”; stay in the comments 1–2h — engagement decides the post">错开 2–3 天；明说「我是作者」；发完守评论区 1–2 小时（互动率决定帖子生死）</td></tr>
+      <tr><td data-en="Page breaks on missing API fields">在线接口缺字段导致页面报错</td><td data-en="Merge over the built-in fallback field by field (overwrite only non-null), never replace whole records">与内置兜底逐字段合并（非空才覆盖），别整条替换</td></tr>
+      <tr><td data-en="new Date() on a string from localStorage gives Invalid Date">localStorage 里的时间字符串 new Date() 得到 Invalid Date</td><td data-en="Number() it first — stored timestamps are often numeric strings">先 Number() 转数字再解析，存出来的常是数字字符串</td></tr>
+      <tr><td data-en="Crawlers see empty text after adding i18n elements">新增多语言元素后爬虫看到空文案</td><td data-en="Hand-write the default copy into the HTML; don't rely on JS to fill it">默认文案手写进 HTML，别指望 JS 填充</td></tr>
+      <tr><td data-en="AI's script looks right but won't run">AI 写的脚本看着对但跑不通</td><td data-en="Extract the module script and run node --check; and verify dependencies first (Weapon 2)">提取 module 脚本跑 node --check 查语法；并回到武器二先验证依赖</td></tr>
+      <tr><td data-en="Eager to monetize with ads">急着挂广告变现</td><td data-en="Wait for returning visitors; prefer developer-native ads (EthicalAds / Carbon) over AdSense">等有稳定回访用户再谈；EthicalAds / Carbon 这类开发者向原生广告优先于 AdSense</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="liveref">🤖 <span data-en="Use it with AI: paste this whole page (9 steps + arsenal) into your AI assistant and ask it to follow the workflow for your next site — that's the full intended usage of this tutorial.">配合 AI 使用：把本页（9 步 + 秘密武器）整段丢给你的 AI 助手，让它按这套流程帮你做下一个站——这才是教程的完整用法。</span></p>
+</section>
+
 <!-- ================= FAQ ================= -->
 <section id="faq">
   <section class="routebox" style="margin-top:34px">
@@ -1043,7 +1098,7 @@ function refreshProgress() {
   if (txt) txt.textContent = n + '/9';
   document.querySelectorAll('.toc a[data-toc]').forEach(a => {
     const v = a.dataset.toc;
-    a.classList.toggle('done', v !== 'route' && v !== 'faq' && done.has(Number(v)));
+    a.classList.toggle('done', v !== 'route' && v !== 'faq' && v !== 'arsenal' && done.has(Number(v)));
   });
   document.querySelectorAll('.rm-chip').forEach(c => {
     c.classList.toggle('done', done.has(Number(c.dataset.step)));
@@ -1056,7 +1111,7 @@ function refreshProgress() {
 }
 
 /* ================= scrollspy ================= */
-const spySections = ['uses', 'route', 'step-1', 'step-2', 'step-3', 'step-4', 'step-5', 'step-6', 'step-7', 'step-8', 'step-9', 'faq'];
+const spySections = ['uses', 'route', 'step-1', 'step-2', 'step-3', 'step-4', 'step-5', 'step-6', 'step-7', 'step-8', 'step-9', 'arsenal', 'faq'];
 function spy() {
   let cur = spySections[0];
   for (const id of spySections) {
