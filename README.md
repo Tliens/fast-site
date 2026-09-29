@@ -6,6 +6,7 @@
 - 形态：单文件 index.html（内联 CSS/JS，零构建、零外部 JS 依赖）
 - 中英双语，默认中文（`?lang=en` 深链 + hreflang）；亮暗主题（auto/light/dark）
 - 交互：9 步勾选进度（localStorage 保存）、顶栏进度条、侧边目录 scrollspy、命令/提示词一键复制
+- 天工鲁班：左下角悬浮卡点开「关于」弹窗（站点介绍 + 代号寓意 + 去 X 关注）；9 步+秘密武器每节末尾「咨询作者（X）」引导
 - 秘密武器板块（#arsenal）：魁歌实战工作流蒸馏——命名公式 / 依赖先验证 / 高频坑清单，源自私有 micro-tool-site skill 的去隐私版
 - SEO：HowTo + FAQPage JSON-LD、sitemap.xml（xhtml:link 交替）、robots.txt、og-image 1200×630
 - 统计：Cloudflare Web Analytics（kuige.me 站点 beacon）

@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="zh" href="https://fast-site.kuige.me/">
 <link rel="alternate" hreflang="en" href="https://fast-site.kuige.me/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://fast-site.kuige.me/">
-<link rel="icon" type="image/png" href="favicon.png?v=3">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="icon" type="image/png" href="favicon.png?v=4">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="魁歌 Kuige">
 <meta property="og:title" content="魁歌AI建站完全指南 — 零基础 9 步，半天上线你的网站">
@@ -182,6 +182,23 @@ table.cmp td:first-child{font-weight:600;white-space:nowrap}
 /* 咨询作者引导 */
 .askauthor{margin:12px 0 0;font-size:13.5px;color:var(--muted)}
 .askauthor a{font-weight:600}
+/* 天工鲁班悬浮卡 + 关于弹窗 */
+.luban-fab{position:fixed;left:18px;bottom:18px;z-index:60;width:64px;height:64px;padding:0;border:1px solid var(--border);border-radius:18px;background:none;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
+.luban-fab:hover{transform:translateY(-3px) scale(1.04)}
+.luban-fab img{width:100%;height:100%;border-radius:17px;display:block}
+.luban-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,14,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.luban-modal.open{display:flex}
+.luban-card{position:relative;max-width:400px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px 26px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:lubanIn .22s ease-out}
+@keyframes lubanIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.luban-card>img{width:108px;height:108px;border-radius:22px}
+.luban-card h3{margin:14px 0 2px;font-size:19px}
+.luban-card .lsub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.luban-card p.ltxt{font-size:13.8px;color:var(--muted);text-align:left;margin:8px 0;line-height:1.7}
+.luban-card .xbtn{display:block;width:100%;margin-top:16px;padding:11px 0;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;font-size:14.5px}
+.luban-card .xbtn:hover{text-decoration:none;filter:brightness(1.08)}
+.luban-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+@media (max-width:640px){.luban-fab{width:54px;height:54px;left:12px;bottom:12px;border-radius:15px}}
+@media print{.luban-fab,.luban-modal{display:none!important}}
 .check{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
 .check input{position:absolute;opacity:0;pointer-events:none}
 .check .box{width:24px;height:24px;flex:none;border:2px solid var(--border);border-radius:7px;display:grid;place-items:center;font-size:15px;color:transparent;transition:.15s;background:var(--card)}
@@ -237,7 +254,7 @@ footer.foot p{margin:6px 0}
 
 <header class="topbar">
   <div class="brand">
-    <img class="logo" src="logo.png?v=3" width="26" height="26" alt="" aria-hidden="true" title="天工鲁班 · Tiangong Luban">
+    <img class="logo" src="logo.png?v=4" width="26" height="26" alt="" aria-hidden="true" title="天工鲁班 · Tiangong Luban">
     <span class="bt" data-en="Kuige · AI Web Builder">魁歌AI建站</span>
     <span class="slogan" data-en="No experience, no code — build your site free">零基础，零代码也能免费建站</span>
   </div>
@@ -1191,6 +1208,14 @@ document.querySelectorAll('.copy').forEach(btn => {
   });
 });
 
+/* 天工鲁班弹窗 */
+const lmodal = document.getElementById('lubanModal');
+const lubanClose = () => lmodal.classList.remove('open');
+document.getElementById('lubanFab').addEventListener('click', () => lmodal.classList.add('open'));
+document.getElementById('lubanClose').addEventListener('click', lubanClose);
+lmodal.addEventListener('click', e => { if (e.target === lmodal) lubanClose(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lubanClose(); });
+
 refreshProgress();
 spy();
 let spyT = null;
@@ -1224,6 +1249,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+<!-- 天工鲁班悬浮卡 + 关于弹窗 -->
+<button class="luban-fab" id="lubanFab" type="button" aria-haspopup="dialog" aria-label="关于本站 · 天工鲁班">
+  <img src="logo.png?v=4" alt="" width="64" height="64">
+</button>
+<div class="luban-modal" id="lubanModal" role="dialog" aria-modal="true" aria-labelledby="lubanTitle">
+  <div class="luban-card">
+    <button class="luban-close" id="lubanClose" type="button" aria-label="关闭">×</button>
+    <img src="logo.png?v=4" alt="天工鲁班" width="108" height="108">
+    <h3 id="lubanTitle" data-en="Tiangong Luban">天工鲁班</h3>
+    <p class="lsub" data-en="Mascot &amp; codename of this site">本站形象 · 代号</p>
+    <p class="ltxt" data-en="You are reading the Kuige Complete AI Website Guide — a 9-step tutorial that takes absolute beginners from zero to a live website: no coding, no cost. Everything on this page is a working example of its own method.">这里是《魁歌AI建站完全指南》：零基础、零代码、不花钱，9 步把一个网站做出来并上线。你正在看的每一页，都是这条流程的活案例。</p>
+    <p class="ltxt" data-en="“Tiangong” comes from Tiangong Kaiwu (The Exploitation of the Works of Nature), and “Luban” is the legendary master craftsman of China. The name carries the idea: website-building should not be walled off by code. Follow the nine steps, and — like Luban raising a house — you will craft a site of your own with your own hands.">「天工」取自《天工开物》，「鲁班」是匠作祖师。寓意：建站的手艺不该被代码挡在门外——跟着九步走，零基础也能像鲁班造屋一样，亲手造出自己的网站。</p>
+    <a class="xbtn" href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Follow me on X">去 X 上关注我</a>
+  </div>
+</div>
+
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "948f2535a9dd4775a436c677b3c950e4"}'></script>
 </body>
 </html>
