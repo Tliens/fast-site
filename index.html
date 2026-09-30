@@ -199,6 +199,21 @@ table.cmp td:first-child{font-weight:600;white-space:nowrap}
 .luban-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
 @media (max-width:640px){.luban-fab{width:54px;height:54px;left:12px;bottom:12px;border-radius:15px}}
 @media print{.luban-fab,.luban-modal{display:none!important}}
+/* 私藏 Skill 入口 + 弹窗 */
+.skill-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,14,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.skill-modal.open{display:flex}
+.skill-card{position:relative;max-width:470px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px 26px 24px;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:lubanIn .22s ease-out}
+.skill-card h3{margin:0 0 2px;font-size:19px;text-align:center}
+.skill-card .lsub{font-size:12.5px;color:var(--muted);margin:0 0 10px;text-align:center}
+.skill-card p.ltxt{font-size:13.8px;color:var(--muted);text-align:left;margin:8px 0;line-height:1.7}
+.skill-card ol{margin:8px 0;padding-left:20px;font-size:13.8px;color:var(--muted);line-height:1.95;text-align:left}
+.skill-card ol b{color:var(--text)}
+.skill-card .xbtn{display:block;width:100%;margin-top:14px;padding:11px 0;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;font-size:14.5px;text-align:center}
+.skill-card .xbtn:hover{text-decoration:none;filter:brightness(1.08)}
+.skill-card .fineprint{font-size:12px;color:var(--muted);margin:10px 0 0;text-align:center;line-height:1.6}
+.skill-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+@media (max-width:430px){.topbar{gap:8px;padding:10px 14px}#skillBtn{padding:6px 9px;font-size:0}#skillBtn::before{content:"🎁";font-size:14px}.topbar .tbtn{white-space:nowrap}}
+@media print{#skillBtn,.skill-modal{display:none!important}}
 .check{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
 .check input{position:absolute;opacity:0;pointer-events:none}
 .check .box{width:24px;height:24px;flex:none;border:2px solid var(--border);border-radius:7px;display:grid;place-items:center;font-size:15px;color:transparent;transition:.15s;background:var(--card)}
@@ -262,6 +277,7 @@ footer.foot p{margin:6px 0}
     <div class="prog-bar"><i id="progFill"></i></div>
     <span id="progText">0/9</span>
   </div>
+  <button class="tbtn" id="skillBtn" type="button" aria-haspopup="dialog" aria-label="私藏 AI 建站 Skill" data-en="🎁 Skill Pack">🎁 私藏 Skill</button>
   <a class="tbtn kuige-entry" href="https://kuige.me/" target="_blank" rel="noopener" title="kuige.me" style="text-decoration:none">魁歌 · 独立开发者</a>
 <button class="tbtn" id="langBtn" type="button" aria-label="switch language">EN</button>
   <button class="tbtn" id="themeBtn" type="button" aria-label="switch theme">🌤️</button>
@@ -1215,7 +1231,13 @@ const lubanClose = () => lmodal.classList.remove('open');
 document.getElementById('lubanFab').addEventListener('click', () => lmodal.classList.add('open'));
 document.getElementById('lubanClose').addEventListener('click', lubanClose);
 lmodal.addEventListener('click', e => { if (e.target === lmodal) lubanClose(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') lubanClose(); });
+/* 私藏 Skill 弹窗 */
+const smodal = document.getElementById('skillModal');
+const skillClose = () => smodal.classList.remove('open');
+document.getElementById('skillBtn').addEventListener('click', () => smodal.classList.add('open'));
+document.getElementById('skillClose').addEventListener('click', skillClose);
+smodal.addEventListener('click', e => { if (e.target === smodal) skillClose(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { lubanClose(); skillClose(); } });
 
 refreshProgress();
 spy();
@@ -1263,6 +1285,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     <p class="ltxt" data-en="You are reading the Kuige Complete AI Website Guide — a 9-step tutorial that takes absolute beginners from zero to a live website: no coding, no cost. Everything on this page is a working example of its own method.">这里是《魁歌AI建站完全指南》：零基础、零代码、不花钱，9 步把一个网站做出来并上线。你正在看的每一页，都是这条流程的活案例。</p>
     <p class="ltxt" data-en="“Tiangong” comes from Tiangong Kaiwu (The Exploitation of the Works of Nature), and “Luban” is the legendary master craftsman of China. The name carries the idea: website-building should not be walled off by code. Follow the nine steps, and — like Luban raising a house — you will craft a site of your own with your own hands.">「天工」取自《天工开物》，「鲁班」是匠作祖师。寓意：建站的手艺不该被代码挡在门外——跟着九步走，零基础也能像鲁班造屋一样，亲手造出自己的网站。</p>
     <a class="xbtn" href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Follow me on X">去 X 上关注我</a>
+  </div>
+</div>
+
+<!-- 私藏 AI 建站 Skill 弹窗 -->
+<div class="skill-modal" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="skillTitle">
+  <div class="skill-card">
+    <button class="skill-close" id="skillClose" type="button" aria-label="关闭">×</button>
+    <h3 id="skillTitle" data-en="The Skill Behind This Site">私藏 AI 建站 Skill</h3>
+    <p class="lsub" data-en="The full workflow behind this 9-step guide">本站 9 步教程的作者自用完整版</p>
+    <p class="ltxt" data-en="This guide is the beginner version. My own workflow — clarify, build, deploy, SEO, Google indexing, plus every pitfall I hit — is packaged as one skill for ZCode. I used it to ship 14 tool sites in about a month.">这套 9 步教程有个"完全体"：我把从需求澄清、写页面、上线，到 SEO、统计、Google 收录的全流程，连同踩过的每一个坑，打包成了 ZCode 的一份 skill。用它一个多月，我上线了 14 个工具网站。</p>
+    <ol>
+      <li data-en="Download the zip below and unzip it to get the micro-tool-site folder">点下面按钮下载压缩包，解压得到 micro-tool-site 文件夹</li>
+      <li data-en="Put that folder into ZCode's skills directory: ~/.agents/skills/ (create it if missing)">把它放进 ZCode 的技能目录 <code>~/.agents/skills/</code>（没有就新建一个）</li>
+      <li data-en="Tell ZCode: &quot;Help me build and launch a ___ tool website&quot; — it runs the whole flow, from clarifying requirements to submitting to Google">对 ZCode 说一句：<b>"帮我做个 XX 工具网站并上线"</b>——它会从澄清需求开始，一路带你走到提交 Google 收录</li>
+    </ol>
+    <a class="xbtn" href="micro-tool-site.zip?v=1" download="micro-tool-site.zip" data-en="⬇️ Download the Skill Pack (~30 KB)">⬇️ 下载 Skill 压缩包（约 30 KB）</a>
+    <p class="fineprint" data-en="Requires ZCode (free tier available). The skill is plain text — open it, read it, tweak it freely.">需要 ZCode（有免费额度）。skill 就是几个纯文本文件，可以打开随便看、随便改。</p>
   </div>
 </div>
 
