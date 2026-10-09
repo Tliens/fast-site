@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="zh" href="https://fast-site.kuige.me/">
 <link rel="alternate" hreflang="en" href="https://fast-site.kuige.me/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://fast-site.kuige.me/">
-<link rel="icon" type="image/png" href="favicon.png?v=4">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="魁歌建站指南 FastSite">
 <meta property="og:title" content="魁歌AI建站完全指南 — 零基础 9 步，半天上线你的网站">
@@ -82,12 +82,7 @@ code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-s
 h1,h2,h3{line-height:1.35}
 img{max-width:100%}
 
-/* ===== 顶栏 ===== */
-.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:10px 20px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;white-space:nowrap}
-.brand .logo{width:26px;height:26px;flex:none;border-radius:6px;border:1px solid var(--border)}
-.brand .slogan{font-size:12.5px;font-weight:500;color:var(--muted);white-space:nowrap}
-.brand .slogan::before{content:"·";margin:0 8px;font-weight:700}
+/* ===== 顶栏（进度条等沿用旧样式，容器用 kg-top） ===== */
 .prog{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
 .prog-bar{flex:1;height:8px;max-width:220px;background:var(--chip-bg);border-radius:99px;overflow:hidden}
 .prog-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:99px;transition:width .4s}
@@ -182,27 +177,11 @@ table.cmp td:first-child{font-weight:600;white-space:nowrap}
 /* 咨询作者引导 */
 .askauthor{margin:12px 0 0;font-size:13.5px;color:var(--muted)}
 .askauthor a{font-weight:600}
-/* 天工鲁班悬浮卡 + 关于弹窗 */
-.luban-fab{position:fixed;left:18px;bottom:18px;z-index:60;width:64px;height:64px;padding:0;border:1px solid var(--border);border-radius:18px;background:none;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
-.luban-fab:hover{transform:translateY(-3px) scale(1.04)}
-.luban-fab img{width:100%;height:100%;border-radius:17px;display:block}
-.luban-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,14,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.luban-modal.open{display:flex}
-.luban-card{position:relative;max-width:400px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px 26px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:lubanIn .22s ease-out}
-@keyframes lubanIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
-.luban-card>img{width:108px;height:108px;border-radius:22px}
-.luban-card h3{margin:14px 0 2px;font-size:19px}
-.luban-card .lsub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
-.luban-card p.ltxt{font-size:13.8px;color:var(--muted);text-align:left;margin:8px 0;line-height:1.7}
-.luban-card .xbtn{display:block;width:100%;margin-top:16px;padding:11px 0;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;font-size:14.5px}
-.luban-card .xbtn:hover{text-decoration:none;filter:brightness(1.08)}
-.luban-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
-@media (max-width:640px){.luban-fab{width:54px;height:54px;left:12px;bottom:12px;border-radius:15px}}
-@media print{.luban-fab,.luban-modal{display:none!important}}
+@keyframes kgpop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 /* 私藏 Skill 入口 + 弹窗 */
 .skill-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,8,14,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .skill-modal.open{display:flex}
-.skill-card{position:relative;max-width:470px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px 26px 24px;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:lubanIn .22s ease-out}
+.skill-card{position:relative;max-width:470px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px 26px 24px;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:kgpop .22s ease-out}
 .skill-card h3{margin:0 0 2px;font-size:19px;text-align:center}
 .skill-card .lsub{font-size:12.5px;color:var(--muted);margin:0 0 10px;text-align:center}
 .skill-card p.ltxt{font-size:13.8px;color:var(--muted);text-align:left;margin:8px 0;line-height:1.7}
@@ -212,7 +191,7 @@ table.cmp td:first-child{font-weight:600;white-space:nowrap}
 .skill-card .xbtn:hover{text-decoration:none;filter:brightness(1.08)}
 .skill-card .fineprint{font-size:12px;color:var(--muted);margin:10px 0 0;text-align:center;line-height:1.6}
 .skill-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
-@media (max-width:430px){.topbar{gap:8px;padding:10px 14px}#skillBtn{padding:6px 9px;font-size:0}#skillBtn::before{content:"🎁";font-size:14px}.topbar .tbtn{white-space:nowrap}}
+@media (max-width:430px){.kg-top-in{gap:8px;padding:10px 14px}#skillBtn{padding:6px 9px;font-size:0}#skillBtn::before{content:"🎁";font-size:14px}.kg-nav .tbtn{white-space:nowrap}}
 @media print{#skillBtn,.skill-modal{display:none!important}}
 .check{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
 .check input{position:absolute;opacity:0;pointer-events:none}
@@ -244,9 +223,7 @@ details.faq .ans{padding:12px 0 16px 22px;color:var(--muted)}
 /* 路线总览 */
 .routebox h2{margin:0 0 6px;font-size:clamp(19px,2.6vw,24px)}
 
-/* footer */
-footer.foot{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 10px;color:var(--muted);font-size:13.5px}
-footer.foot p{margin:6px 0}
+/* footer 用 kg-foot（见页尾站群基座样式） */
 
 @media (max-width:920px){
   .layout{grid-template-columns:1fr;gap:0}
@@ -257,30 +234,55 @@ footer.foot p{margin:6px 0}
 @media (max-width:640px){
   .pc{grid-template-columns:1fr}
   .prog-bar{max-width:90px}
-  .brand span.bt,.brand .slogan{display:none}
+  .kg-brand small{display:none}
 }
 @media print{
-  .topbar,.toc,.roadmap,.copy,.checkrow{display:none!important}
+  .kg-top,.toc,.roadmap,.copy,.checkrow{display:none!important}
   body{background:#fff}
 }
+/* ── KuiGe 站群统一基座 ───────────────────── */
+:root{--kg-ink:#1f2430;--kg-sub:#6b7280;--kg-accent:#f2603c;--kg-line:#e8e6e1;--kg-bg:#faf9f7}
+.kg-top{position:sticky;top:0;z-index:60;background:rgba(250,249,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--kg-line)}
+.kg-top-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.kg-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--kg-ink);font-weight:700;font-size:17px}
+.kg-brand img{width:32px;height:32px;border-radius:9px;display:block}
+.kg-brand small{font-weight:500;color:var(--kg-sub);font-size:12px}
+.kg-nav{display:flex;align-items:center;gap:14px;font-size:14px}
+.kg-nav a{color:var(--kg-sub);text-decoration:none}
+.kg-nav a:hover{color:var(--kg-ink)}
+.kg-entry{background:var(--kg-ink);color:#fff!important;padding:6px 14px;border-radius:999px;text-decoration:none;font-size:13px}
+.kg-entry:hover{background:var(--kg-accent)}
+.kg-foot{background:var(--kg-bg);border-top:1px solid var(--kg-line);color:var(--kg-sub);font-size:13px;margin-top:0}
+.kg-foot-in{max-width:1120px;margin:0 auto;padding:36px 20px 28px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.kg-foot img{width:44px;height:44px;border-radius:12px;margin-bottom:2px}
+.kg-foot-brand{color:var(--kg-ink);font-weight:700;font-size:15px;margin:0}
+.kg-foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.kg-foot-links a{color:var(--kg-sub);text-decoration:none}
+.kg-foot-links a:hover{color:var(--kg-accent)}
+.kg-foot-copy{margin:4px 0 0;color:#9ca3af;font-size:12px}
+.kg-foot-copy a{text-decoration:none}
+@media(max-width:640px){.kg-nav a:not(.kg-entry){display:none}}
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="brand">
-    <img class="logo" src="logo.png?v=4" width="26" height="26" alt="" aria-hidden="true" title="天工鲁班 · Tiangong Luban">
-    <span class="bt" data-en="Kuige · AI Web Builder">魁歌AI建站</span>
-    <span class="slogan" data-en="No experience, no code — build your site free">零基础，零代码也能免费建站</span>
+<header class="kg-top">
+  <div class="kg-top-in">
+    <a class="kg-brand" href="#top">
+      <img src="favicon.png?v=2" alt="魁歌建站指南吉祥物">
+      <span><span class="bt" data-en="Kuige · AI Web Builder">魁歌AI建站</span><small data-en="No experience, no code — build your site free">零基础，零代码也能免费建站</small></span>
+    </a>
+    <nav class="kg-nav">
+      <div class="prog" aria-label="progress">
+        <div class="prog-bar"><i id="progFill"></i></div>
+        <span id="progText">0/9</span>
+      </div>
+      <button class="tbtn" id="skillBtn" type="button" aria-haspopup="dialog" aria-label="私藏 AI 建站 Skill" data-en="🎁 Skill Pack">🎁 私藏 Skill</button>
+      <a class="kg-entry" href="https://kuige.me/" target="_blank" rel="noopener">魁歌 · 全部作品</a>
+      <button class="tbtn" id="langBtn" type="button" aria-label="switch language">EN</button>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="switch theme">🌤️</button>
+    </nav>
   </div>
-  <div class="prog" aria-label="progress">
-    <div class="prog-bar"><i id="progFill"></i></div>
-    <span id="progText">0/9</span>
-  </div>
-  <button class="tbtn" id="skillBtn" type="button" aria-haspopup="dialog" aria-label="私藏 AI 建站 Skill" data-en="🎁 Skill Pack">🎁 私藏 Skill</button>
-  <a class="tbtn kuige-entry" href="https://kuige.me/" target="_blank" rel="noopener" title="kuige.me" style="text-decoration:none"><img src="https://kuige.me/logo.png" alt="" width="16" height="16" style="width:16px;height:16px;border-radius:50%;vertical-align:-3px;margin-right:6px">魁歌</a>
-<button class="tbtn" id="langBtn" type="button" aria-label="switch language">EN</button>
-  <button class="tbtn" id="themeBtn" type="button" aria-label="switch theme">🌤️</button>
 </header>
 
 <div class="layout">
@@ -1054,14 +1056,25 @@ git push</pre>
     </details>
   </section>
 
-  <footer class="foot">
-    <p>🚀 <span data-en="This site practices what it preaches: single-file HTML, built with an AI assistant, hosted free on GitHub Pages at ">本站即活案例：单文件 HTML、AI 辅助编写、GitHub Pages 免费托管于 </span><a href="https://fast-site.kuige.me/" target="_blank" rel="noopener">fast-site.kuige.me</a><span data-en=", source on ">，源码在 </span><a href="https://github.com/Tliens/fast-site" target="_blank" rel="noopener">GitHub</a>。</p>
-    <p><span data-en="More tools and sites by Kuige: ">魁歌的更多工具站：</span><a href="https://shareforge.kuige.me/" target="_blank" rel="noopener">ShareForge</a><span data-en=" (promo-image maker)">（推广配图生成）</span> · © 2026 <span data-en="Kuige">魁歌</span> · <span data-en="Codename: Tiangong Luban">本站代号：天工鲁班</span></p>
-  </footer>
-</section>
+  </section>
 
 </main>
 </div>
+
+<footer class="kg-foot">
+  <div class="kg-foot-in">
+    <img src="favicon.png?v=2" alt="魁歌建站指南吉祥物">
+    <p class="kg-foot-brand">魁歌建站指南 FastSite</p>
+    <nav class="kg-foot-links">
+      <a href="https://kuige.me/" target="_blank" rel="noopener">魁歌主页</a>
+      <a href="https://shareforge.kuige.me/" target="_blank" rel="noopener">ShareForge</a>
+      <a href="https://icongems.kuige.me/" target="_blank" rel="noopener">IconGems</a>
+      <a href="https://github.com/Tliens/fast-site" target="_blank" rel="noopener">GitHub 源码</a>
+      <a href="https://x.com/kuige_me" target="_blank" rel="noopener">X (Twitter)</a>
+    </nav>
+    <p class="kg-foot-copy"><span data-en="This site practices what it preaches: single-file HTML, built with an AI assistant, hosted free on GitHub Pages.">本站即活案例：单文件 HTML、AI 辅助编写、GitHub Pages 免费托管。</span> © 2026 <span data-en="Kuige">魁歌</span> · 用 AI 构建 · <a href="https://kuige.me/" style="color:inherit">kuige.me</a></p>
+  </div>
+</footer>
 
 <script type="module">
 /* ================= i18n ================= */
@@ -1225,19 +1238,13 @@ document.querySelectorAll('.copy').forEach(btn => {
   });
 });
 
-/* 天工鲁班弹窗 */
-const lmodal = document.getElementById('lubanModal');
-const lubanClose = () => lmodal.classList.remove('open');
-document.getElementById('lubanFab').addEventListener('click', () => lmodal.classList.add('open'));
-document.getElementById('lubanClose').addEventListener('click', lubanClose);
-lmodal.addEventListener('click', e => { if (e.target === lmodal) lubanClose(); });
 /* 私藏 Skill 弹窗 */
 const smodal = document.getElementById('skillModal');
 const skillClose = () => smodal.classList.remove('open');
 document.getElementById('skillBtn').addEventListener('click', () => smodal.classList.add('open'));
 document.getElementById('skillClose').addEventListener('click', skillClose);
 smodal.addEventListener('click', e => { if (e.target === smodal) skillClose(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { lubanClose(); skillClose(); } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { skillClose(); } });
 
 refreshProgress();
 spy();
@@ -1272,22 +1279,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
-<!-- 天工鲁班悬浮卡 + 关于弹窗 -->
-<button class="luban-fab" id="lubanFab" type="button" aria-haspopup="dialog" aria-label="关于本站 · 天工鲁班">
-  <img src="logo.png?v=4" alt="" width="64" height="64">
-</button>
-<div class="luban-modal" id="lubanModal" role="dialog" aria-modal="true" aria-labelledby="lubanTitle">
-  <div class="luban-card">
-    <button class="luban-close" id="lubanClose" type="button" aria-label="关闭">×</button>
-    <img src="logo.png?v=4" alt="天工鲁班" width="108" height="108">
-    <h3 id="lubanTitle" data-en="Tiangong Luban">天工鲁班</h3>
-    <p class="lsub" data-en="Mascot &amp; codename of this site">本站形象 · 代号</p>
-    <p class="ltxt" data-en="You are reading the Kuige Complete AI Website Guide — a 9-step tutorial that takes absolute beginners from zero to a live website: no coding, no cost. Everything on this page is a working example of its own method.">这里是《魁歌AI建站完全指南》：零基础、零代码、不花钱，9 步把一个网站做出来并上线。你正在看的每一页，都是这条流程的活案例。</p>
-    <p class="ltxt" data-en="“Tiangong” comes from Tiangong Kaiwu (The Exploitation of the Works of Nature), and “Luban” is the legendary master craftsman of China. The name carries the idea: website-building should not be walled off by code. Follow the nine steps, and — like Luban raising a house — you will craft a site of your own with your own hands.">「天工」取自《天工开物》，「鲁班」是匠作祖师。寓意：建站的手艺不该被代码挡在门外——跟着九步走，零基础也能像鲁班造屋一样，亲手造出自己的网站。</p>
-    <a class="xbtn" href="https://x.com/kuige_me" target="_blank" rel="noopener" data-en="Follow me on X">去 X 上关注我</a>
-  </div>
-</div>
-
 <!-- 私藏 AI 建站 Skill 弹窗 -->
 <div class="skill-modal" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="skillTitle">
   <div class="skill-card">
